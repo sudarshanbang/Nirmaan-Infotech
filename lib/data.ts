@@ -15,7 +15,8 @@ export interface PortfolioItem {
   id: string;
   title: string;
   category: 'Business' | 'E-commerce' | 'Healthcare' | 'Real Estate' | 'Restaurants' | 'Startups';
-  badge: 'Concept Project';
+  badge: string;
+  liveUrl?: string;
   shortDesc: string;
   overview: string;
   challenge: string;
@@ -257,8 +258,24 @@ export const servicesData: ServiceItem[] = [
   },
 ];
 
-// 2. PORTFOLIO CONCEPT PROJECTS
+// 2. PORTFOLIO PROJECTS (LIVE & CONCEPTS)
 export const portfolioData: PortfolioItem[] = [
+  {
+    id: "shri-krishna-grocery-store",
+    title: "Shri Krishna Grocery Store",
+    category: "E-commerce",
+    badge: "Live Project",
+    liveUrl: "https://shri-krishna-grocery-store.vercel.app/",
+    shortDesc: "Full-featured modern e-commerce storefront for online grocery shopping with dynamic catalog, smart search, and instant cart management.",
+    overview: "A production-grade live e-commerce platform engineered for Shri Krishna Grocery Store to establish a modern online retail presence, digitize customer ordering, and expand local reach.",
+    challenge: "Local retail grocery shoppers required a fast, user-friendly digital storefront with quick item search, category browsing, and instant WhatsApp / online order placement.",
+    solution: "Engineered a high-performance responsive web application with fast product loading, intuitive cart drawer, search filtering, and seamless mobile checkout UX.",
+    keyFeatures: ["Dynamic Grocery Product Catalog", "Instant Category Filtering & Search", "Mobile-Optimized Cart & Checkout", "WhatsApp & Digital Order Triggers", "100/100 Core Web Vitals Optimization"],
+    image: "/images/showcase/concept-ecommerce.jpg",
+    accentColor: "#10B981",
+    statsLabel: "Deployment",
+    statsValue: "Live on Vercel",
+  },
   {
     id: "concept-restaurant",
     title: "Spice & Wood Culinary Experience",

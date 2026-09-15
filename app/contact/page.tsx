@@ -121,7 +121,7 @@ export default function ContactPage() {
               <div className="w-full h-32 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center p-4">
                 <div className="text-center space-y-1">
                   <MapPin className="w-6 h-6 text-blue-400 mx-auto" />
-                  <span className="text-xs font-mono text-white font-bold block">Bengaluru • Karnataka • India</span>
+                  <span className="text-xs font-mono text-white font-bold block">Anandnagar • Pune • Maharashtra • India</span>
                   <span className="text-[10px] text-slate-400 block">Serving Clients Nationwide & Globally</span>
                 </div>
               </div>

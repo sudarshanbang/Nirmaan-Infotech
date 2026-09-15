@@ -43,25 +43,27 @@ export const ProblemSection: React.FC = () => {
         {/* 4 PROBLEM VS SOLUTION CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {problemCards.map((card, index) => (
-            <ScrollReveal key={card.id} delay={index * 0.1}>
-              <div className="h-full p-8 rounded-2xl bg-navy-900/90 border border-white/10 hover:border-blue-400/50 shadow-2xl group transition-all">
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="p-3 rounded-2xl bg-white/5 border border-white/10 group-hover:scale-105 transition-transform shrink-0">
-                    {getIcon(card.id)}
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs text-red-300 font-medium mt-0.5">
-                      Problem: {card.impact}
-                    </p>
+            <ScrollReveal key={card.id} delay={index * 0.1} className="h-full">
+              <div className="h-full p-8 rounded-2xl bg-navy-900/90 border border-white/10 hover:border-blue-400/50 shadow-2xl group transition-all flex flex-col justify-between">
+                <div className="flex-1 flex flex-col justify-between mb-4">
+                  <div className="flex items-start gap-4">
+                    <div className="p-3 rounded-2xl bg-white/5 border border-white/10 group-hover:scale-105 transition-transform shrink-0">
+                      {getIcon(card.id)}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                        {card.title}
+                      </h3>
+                      <p className="text-xs text-red-300 font-medium mt-1 leading-relaxed">
+                        Problem: {card.impact}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 mt-4 flex items-start gap-3">
+                <div className="pt-4 border-t border-white/10 flex items-start gap-3">
                   <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
-                  <div>
+                  <div className="flex-1">
                     <p className="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">
                       Nirmaan Solution
                     </p>

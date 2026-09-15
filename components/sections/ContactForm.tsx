@@ -13,7 +13,6 @@ export const ContactForm: React.FC = () => {
     email: '',
     phone: '',
     service: 'Website Development',
-    budget: '₹15,000–₹30,000',
     message: '',
   });
 
@@ -29,14 +28,6 @@ export const ContactForm: React.FC = () => {
     'Branding',
     'Custom Digital Solution',
     'Other',
-  ];
-
-  const budgetList = [
-    'Under ₹15,000',
-    '₹15,000–₹30,000',
-    '₹30,000–₹50,000',
-    '₹50,000–₹1,00,000',
-    '₹1,00,000+',
   ];
 
   const handleChange = (
@@ -82,7 +73,6 @@ export const ContactForm: React.FC = () => {
                   email: '',
                   phone: '',
                   service: 'Website Development',
-                  budget: '₹15,000–₹30,000',
                   message: '',
                 });
               }}
@@ -167,13 +157,13 @@ export const ContactForm: React.FC = () => {
                 required
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="+91 98765 43210"
+                placeholder="+91 82082 16317"
                 className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-colors placeholder:text-slate-400 font-medium"
               />
             </div>
 
             {/* SERVICE DROPDOWN */}
-            <div>
+            <div className="sm:col-span-2">
               <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
                 Primary Service Needed
               </label>
@@ -186,25 +176,6 @@ export const ContactForm: React.FC = () => {
                 {servicesList.map((svc) => (
                   <option key={svc} value={svc} className="bg-white text-slate-900">
                     {svc}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* BUDGET DROPDOWN */}
-            <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1.5 uppercase tracking-wider">
-                Project Budget Range
-              </label>
-              <select
-                name="budget"
-                value={formData.budget}
-                onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 text-slate-900 text-sm focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-colors font-medium"
-              >
-                {budgetList.map((bgt) => (
-                  <option key={bgt} value={bgt} className="bg-white text-slate-900">
-                    {bgt}
                   </option>
                 ))}
               </select>

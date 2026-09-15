@@ -7,8 +7,6 @@ import { PortfolioSection } from '@/components/sections/PortfolioSection';
 import { WhyChooseUs } from '@/components/sections/WhyChooseUs';
 import { ProcessTimeline } from '@/components/sections/ProcessTimeline';
 import { IndustriesSection } from '@/components/sections/IndustriesSection';
-import { PricingSection } from '@/components/sections/PricingSection';
-import { MaintenanceSection } from '@/components/sections/MaintenanceSection';
 import { AboutTeaser } from '@/components/sections/AboutTeaser';
 import { TrustBuildingSection } from '@/components/sections/TrustBuildingSection';
 import { CTASection } from '@/components/sections/CTASection';
@@ -25,8 +23,6 @@ export default function HomePage() {
       <WhyChooseUs />
       <ProcessTimeline />
       <IndustriesSection />
-      <PricingSection />
-      <MaintenanceSection />
       <AboutTeaser />
       <TrustBuildingSection />
       <CTASection />

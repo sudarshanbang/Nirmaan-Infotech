@@ -42,7 +42,7 @@ export const WhyChooseUs: React.FC = () => {
         {/* 4 FEATURE BLOCKS */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {whyNirmaanFeatures.map((feature, index) => (
-            <ScrollReveal key={feature.title} delay={index * 0.1}>
+            <ScrollReveal key={feature.title} delay={index * 0.1} className="h-full">
               <div className="h-full p-8 rounded-2xl bg-navy-900/90 border border-white/10 hover:border-blue-400/50 shadow-2xl group transition-all">
                 <div className="flex items-start gap-5">
                   <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 group-hover:scale-105 group-hover:bg-blue-500/20 transition-all shrink-0">

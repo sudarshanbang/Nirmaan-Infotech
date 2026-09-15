@@ -4,11 +4,11 @@ export const siteConfig = {
   description: "Nirmaan Infotech is a premier Indian technology and digital solutions company helping businesses establish, scale, and transform their digital presence through modern web engineering, e-commerce, SEO, and bespoke software solutions.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://nirmaaninfotech.com",
   contact: {
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contact@nirmaaninfotech.com",
-    phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+91 98765 43210",
-    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "919876543210",
-    whatsappDisplay: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+91 98765 43210",
-    address: process.env.NEXT_PUBLIC_OFFICE_ADDRESS || "Tech Hub Tower, Silicon Valley Quarter, Bengaluru, Karnataka, India",
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@nirmaaninfotech.in",
+    phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+91 82082 16317",
+    whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "918208216317",
+    whatsappDisplay: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+91 82082 16317",
+    address: process.env.NEXT_PUBLIC_OFFICE_ADDRESS || "Anandnagar, Pune, Maharashtra, India",
     workingHours: "Mon - Sat: 9:00 AM - 7:00 PM IST",
   },
   social: {

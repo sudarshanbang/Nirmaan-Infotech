@@ -60,14 +60,13 @@ export const Header: React.FC = () => {
     { name: 'Services', href: '/services', hasDropdown: true },
     { name: 'Portfolio', href: '/portfolio' },
     { name: 'About', href: '/about' },
-    { name: 'Pricing', href: '/pricing' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-2xl border-b border-slate-200/90 shadow-lg py-3.5 sm:py-4'
             : 'bg-white/90 backdrop-blur-xl border-b border-slate-100 py-5 sm:py-6'
@@ -123,34 +122,37 @@ export const Header: React.FC = () => {
                         />
                       </Link>
 
-                      {/* SERVICES DESKTOP DROPDOWN (WHITE CARD) */}
+                      {/* SERVICES DESKTOP DROPDOWN (SOLID OPAQUE WHITE CARD) */}
                       <AnimatePresence>
                         {servicesOpen && (
                           <motion.div
-                            initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                            initial={{ opacity: 0, y: 8, scale: 0.98 }}
                             animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 8, scale: 0.98 }}
-                            transition={{ duration: 0.2 }}
-                            className="absolute top-full left-0 mt-2 w-96 rounded-2xl bg-white/98 backdrop-blur-2xl border border-slate-200/90 shadow-2xl p-3 z-50 grid grid-cols-1 gap-1"
+                            exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                            transition={{ duration: 0.18, ease: 'easeOut' }}
+                            className="absolute top-full -left-4 mt-3 w-[420px] rounded-2xl bg-white border border-slate-200 shadow-2xl p-3 z-50 grid grid-cols-1 gap-1 overflow-hidden"
                           >
-                            <div className="px-3 py-2 border-b border-slate-100 mb-1">
-                              <p className="text-xs font-bold uppercase tracking-wider text-electric-500">
+                            <div className="px-3.5 py-2.5 bg-slate-50/90 rounded-xl border border-slate-100 mb-1 flex items-center justify-between">
+                              <p className="text-xs font-bold uppercase tracking-wider text-electric-600">
                                 Digital Solutions & Services
                               </p>
+                              <span className="text-[10px] font-bold text-slate-500 bg-white px-2 py-0.5 rounded-full border border-slate-200/80">
+                                Nirmaan Tech
+                              </span>
                             </div>
 
                             {servicesData.map((service) => (
                               <Link
                                 key={service.id}
                                 href={`/services/${service.slug}`}
-                                className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item"
+                                className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-slate-50 transition-colors group/item border border-transparent hover:border-slate-200/60"
                               >
-                                <div className="p-2 rounded-lg bg-slate-100/80 border border-slate-200/60 group-hover/item:border-electric-500/40 group-hover/item:bg-electric-500/10 transition-colors shrink-0">
+                                <div className="p-2 rounded-xl bg-slate-100/90 border border-slate-200/80 group-hover/item:border-electric-500/40 group-hover/item:bg-electric-500/10 transition-colors shrink-0 mt-0.5">
                                   {iconMap[service.iconName] || <Globe className="w-4 h-4 text-electric-500" />}
                                 </div>
                                 <div className="flex-1 min-w-0">
                                   <div className="flex items-center justify-between">
-                                    <span className="text-sm font-semibold text-slate-800 group-hover/item:text-electric-500 transition-colors">
+                                    <span className="text-sm font-bold text-slate-900 group-hover/item:text-electric-600 transition-colors">
                                       {service.title}
                                     </span>
                                     <ArrowRight className="w-3.5 h-3.5 text-slate-400 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all" />
@@ -162,13 +164,13 @@ export const Header: React.FC = () => {
                               </Link>
                             ))}
 
-                            <div className="mt-2 pt-2 border-t border-slate-100 text-center">
+                            <div className="mt-1 pt-2 border-t border-slate-100 text-center">
                               <Link
                                 href="/services"
-                                className="inline-flex items-center gap-1 text-xs font-semibold text-electric-500 hover:text-electric-600 transition-colors"
+                                className="inline-flex items-center gap-1.5 text-xs font-bold text-electric-600 hover:text-electric-700 transition-colors py-1"
                               >
-                                <span>Explore all services</span>
-                                <ArrowRight className="w-3 h-3" />
+                                <span>Explore all services & capabilities</span>
+                                <ArrowRight className="w-3.5 h-3.5" />
                               </Link>
                             </div>
                           </motion.div>

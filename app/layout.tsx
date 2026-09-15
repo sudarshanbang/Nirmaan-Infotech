@@ -85,8 +85,8 @@ export default function RootLayout({
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'IN',
-      addressLocality: 'Bengaluru',
-      addressRegion: 'Karnataka',
+      addressLocality: 'Pune',
+      addressRegion: 'Maharashtra',
     },
     contactPoint: {
       '@type': 'ContactPoint',
@@ -98,14 +98,21 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable} dark scroll-smooth`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${plusJakartaSans.variable} dark scroll-smooth`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="relative min-h-screen bg-navy-950 text-slate-100 flex flex-col font-sans">
+      <body
+        className="relative min-h-screen bg-navy-950 text-slate-100 flex flex-col font-sans"
+        suppressHydrationWarning
+      >
         <BackgroundGlow />
         <CustomCursor />
         <Header />

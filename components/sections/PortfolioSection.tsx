@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { GlassCard } from '@/components/ui/GlassCard';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { portfolioData, PortfolioItem } from '@/lib/data';
-import { ArrowRight, Eye, Layers, Sparkles } from 'lucide-react';
+import { ArrowRight, Eye, Layers, Sparkles, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const PortfolioSection: React.FC = () => {
@@ -34,7 +34,7 @@ export const PortfolioSection: React.FC = () => {
           </h2>
 
           <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Concept projects designed to demonstrate our visual identity standards, mobile responsiveness, and engineering capabilities across diverse business domains.
+            Showcasing live client deployments and high-impact technology concept builds across diverse business domains.
           </p>
         </ScrollReveal>
 
@@ -70,12 +70,16 @@ export const PortfolioSection: React.FC = () => {
                 <GlassCard
                   variant="interactive"
                   onClick={() => setSelectedProject(project)}
-                  className="h-full flex flex-col justify-between p-0 overflow-hidden group/card bg-white border-slate-200"
+                  className="h-full flex flex-col justify-between p-0 overflow-hidden group/card bg-white border-slate-200 shadow-md hover:shadow-xl transition-all"
                 >
                   {/* VISUAL BANNER / ABSTRACT CONTAINER */}
                   <div className="relative h-52 w-full bg-gradient-to-br from-slate-900 via-navy-900 to-slate-950 p-6 flex flex-col justify-between overflow-hidden border-b border-slate-200">
                     <div className="flex items-center justify-between z-10">
-                      <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                      <span className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider ${
+                        project.liveUrl
+                          ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
+                          : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                      }`}>
                         {project.badge}
                       </span>
                       <span className="px-2.5 py-1 rounded-full text-[10px] font-medium bg-white/10 text-white border border-white/10">
@@ -116,7 +120,7 @@ export const PortfolioSection: React.FC = () => {
                     </div>
 
                     <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-blue-600">
-                      <span>Concept Details</span>
+                      <span>{project.liveUrl ? 'Live Project Details' : 'Concept Details'}</span>
                       <ArrowRight className="w-4 h-4 group-hover/card:translate-x-1 transition-transform" />
                     </div>
                   </div>
@@ -126,7 +130,7 @@ export const PortfolioSection: React.FC = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* CONCEPT PROJECT BREAKDOWN MODAL */}
+        {/* CONCEPT / LIVE PROJECT BREAKDOWN MODAL */}
         <AnimatePresence>
           {selectedProject && (
             <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-md">
@@ -138,7 +142,11 @@ export const PortfolioSection: React.FC = () => {
               >
                 <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
                   <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-300">
+                    <span className={`px-2.5 py-1 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider ${
+                      selectedProject.liveUrl
+                        ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
+                        : 'bg-amber-100 text-amber-800 border border-amber-300'
+                    }`}>
                       {selectedProject.badge}
                     </span>
                     <span className="text-xs text-slate-500 font-bold">{selectedProject.category}</span>
@@ -178,14 +186,27 @@ export const PortfolioSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-slate-100 flex items-center justify-between">
-                  <Link
-                    href="/contact"
-                    onClick={() => setSelectedProject(null)}
-                    className="px-5 py-2.5 rounded-xl bg-blue-600 text-white font-bold text-xs hover:bg-blue-700 transition-colors shadow-md"
-                  >
-                    Request Similar Project Scope
-                  </Link>
+                <div className="mt-8 pt-6 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    {selectedProject.liveUrl ? (
+                      <a
+                        href={selectedProject.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors shadow-md shadow-emerald-600/20"
+                      >
+                        <span>Visit Live Website</span>
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    ) : null}
+                    <Link
+                      href="/contact"
+                      onClick={() => setSelectedProject(null)}
+                      className="px-5 py-2.5 rounded-xl bg-blue-600 text-white font-bold text-xs hover:bg-blue-700 transition-colors shadow-md"
+                    >
+                      Request Similar Project
+                    </Link>
+                  </div>
                   <button
                     onClick={() => setSelectedProject(null)}
                     className="text-xs text-slate-500 font-semibold hover:text-slate-800"
