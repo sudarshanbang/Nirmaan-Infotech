@@ -136,7 +136,7 @@ export const Footer: React.FC = () => {
               <li className="flex items-center gap-2.5 text-gray-300">
                 <Phone className="w-4 h-4 text-electric-400 shrink-0" />
                 <a
-                  href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`}
+                  href={siteConfig.contact.phoneHref}
                   className="hover:text-white transition-colors"
                 >
                   {siteConfig.contact.phone}
@@ -145,7 +145,7 @@ export const Footer: React.FC = () => {
               <li className="flex items-center gap-2.5 text-gray-300">
                 <MessageSquare className="w-4 h-4 text-growthGreen-400 shrink-0" />
                 <a
-                  href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+                  href={siteConfig.contact.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-growthGreen-400 transition-colors inline-flex items-center gap-1"

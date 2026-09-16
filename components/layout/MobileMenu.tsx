@@ -22,16 +22,16 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLink
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="fixed inset-0 top-[76px] sm:top-[88px] z-40 bg-white/98 backdrop-blur-2xl border-b border-slate-200 md:hidden flex flex-col justify-between overflow-y-auto px-5 py-6 shadow-2xl"
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2, ease: 'easeOut' }}
+          className="fixed inset-0 top-[56px] sm:top-[64px] z-40 bg-white md:hidden flex flex-col justify-between overflow-y-auto px-5 py-6 shadow-2xl"
         >
-          <div className="space-y-6">
-            {/* LOGO IN MOBILE DRAWER */}
+          <div className="space-y-5">
+            {/* LOGO & TITLE IN MOBILE DRAWER */}
             <div className="pb-4 border-b border-slate-100 flex items-center justify-between">
-              <div className="relative h-10 w-48">
+              <div className="relative h-8 w-40">
                 <Image
                   src="/images/logo/logo-dark.png"
                   alt={siteConfig.name}
@@ -39,13 +39,13 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLink
                   className="object-contain object-left"
                 />
               </div>
-              <span className="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">
-                Menu
+              <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+                Navigation
               </span>
             </div>
 
             {/* NAV LINKS LIST */}
-            <nav className="flex flex-col space-y-2">
+            <nav className="flex flex-col space-y-1.5">
               {navLinks.map((link) => {
                 if (link.hasDropdown) {
                   return (
@@ -53,11 +53,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLink
                       <button
                         type="button"
                         onClick={() => setServicesAccordionOpen(!servicesAccordionOpen)}
-                        className="flex items-center justify-between w-full py-3 px-3 text-lg font-bold text-slate-800 hover:bg-slate-100/80 rounded-xl transition-colors text-left"
+                        className="flex items-center justify-between w-full py-3 px-3.5 text-base font-bold text-slate-900 bg-slate-50/80 hover:bg-slate-100 rounded-xl transition-colors text-left border border-slate-100"
                       >
-                        <span>{link.name}</span>
+                        <span className="text-slate-900">{link.name}</span>
                         <ChevronDown
-                          className={`w-5 h-5 text-electric-500 transition-transform duration-200 ${
+                          className={`w-5 h-5 text-electric-600 transition-transform duration-200 ${
                             servicesAccordionOpen ? 'rotate-180' : ''
                           }`}
                         />
@@ -71,16 +71,16 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLink
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.2 }}
-                            className="overflow-hidden pl-4 py-1 space-y-1.5 border-l-2 border-electric-500/40 my-1 ml-3"
+                            className="overflow-hidden my-2 ml-2 pl-3 space-y-1.5 border-l-2 border-electric-500 bg-slate-50/50 p-2.5 rounded-r-xl border border-slate-100"
                           >
                             {servicesData.map((service) => (
                               <Link
                                 key={service.id}
                                 href={`/services/${service.slug}`}
                                 onClick={onClose}
-                                className="flex items-center justify-between py-2 px-3 text-sm font-medium text-slate-700 hover:text-electric-600 hover:bg-slate-50 rounded-lg transition-colors"
+                                className="flex items-center justify-between py-2.5 px-3 text-sm font-semibold text-slate-800 hover:text-electric-600 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-slate-200/80 shadow-xs"
                               >
-                                <span>{service.title}</span>
+                                <span className="text-slate-900">{service.title}</span>
                                 <ArrowRight className="w-3.5 h-3.5 text-electric-500" />
                               </Link>
                             ))}
@@ -96,7 +96,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLink
                     key={link.name}
                     href={link.href}
                     onClick={onClose}
-                    className="py-3 px-3 text-lg font-bold text-slate-800 hover:bg-slate-100/80 rounded-xl transition-colors"
+                    className="py-3 px-3.5 text-base font-bold text-slate-900 bg-slate-50/80 hover:bg-slate-100 hover:text-electric-600 rounded-xl transition-colors border border-slate-100"
                   >
                     {link.name}
                   </Link>
@@ -106,39 +106,39 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLink
           </div>
 
           {/* BOTTOM ACTIONS & DIRECT CONTACT */}
-          <div className="pt-6 mt-6 border-t border-slate-100 space-y-4">
+          <div className="pt-5 mt-6 border-t border-slate-100 space-y-4">
             <Button
               href="/contact"
               variant="primary"
               size="lg"
               showArrow
-              className="w-full justify-center"
+              className="w-full justify-center shadow-lg shadow-blue-500/15 font-bold text-base py-3"
               onClick={onClose}
             >
               Get a Free Consultation
             </Button>
 
-            <div className="grid grid-cols-2 gap-3 pt-2">
+            <div className="grid grid-cols-2 gap-3 pt-1">
               <a
-                href={`https://wa.me/${siteConfig.contact.whatsapp}`}
+                href={siteConfig.contact.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-growthGreen-500/10 border border-growthGreen-500/30 text-growthGreen-600 text-xs font-bold"
+                className="flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold hover:bg-emerald-100 transition-colors"
               >
-                <MessageSquare className="w-4 h-4" />
+                <MessageSquare className="w-4 h-4 text-emerald-600" />
                 <span>WhatsApp</span>
               </a>
 
               <a
-                href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`}
-                className="flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl bg-electric-500/10 border border-electric-500/30 text-electric-600 text-xs font-bold"
+                href={siteConfig.contact.phoneHref}
+                className="flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold hover:bg-blue-100 transition-colors"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 text-blue-600" />
                 <span>Call Us</span>
               </a>
             </div>
 
-            <p className="text-center text-xs font-medium text-slate-500 pt-2">
+            <p className="text-center text-xs font-semibold text-slate-500 pt-1">
               {siteConfig.tagline}
             </p>
           </div>

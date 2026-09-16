@@ -7,10 +7,6 @@ import { siteConfig } from '@/lib/config';
 import { MessageSquare, Sparkles } from 'lucide-react';
 
 export const CTASection: React.FC = () => {
-  const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
-    'Hello Nirmaan Infotech! I want to start a new website project.'
-  )}`;
-
   return (
     <section className="relative py-20 lg:py-32 bg-slate-50 text-slate-900 z-10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -44,7 +40,7 @@ export const CTASection: React.FC = () => {
                 </Button>
 
                 <a
-                  href={whatsappUrl}
+                  href={siteConfig.contact.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-growthGreen-500 hover:bg-growthGreen-400 text-slate-950 font-extrabold text-base shadow-xl transition-all duration-300 active:scale-95"

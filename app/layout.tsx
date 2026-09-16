@@ -1,4 +1,8 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
+
+export const viewport: Viewport = {
+  themeColor: '#071A36',
+};
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/lib/config';
@@ -30,9 +34,16 @@ export const metadata: Metadata = {
   keywords: siteConfig.meta.keywords,
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
+  manifest: '/site.webmanifest',
   icons: {
-    icon: '/images/logo/logo-light.png',
-    apple: '/images/logo/logo-light.png',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/web-app-manifest-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     type: 'website',

@@ -6,15 +6,11 @@ import { MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const FloatingWhatsApp: React.FC = () => {
-  const whatsappUrl = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
-    'Hello Nirmaan Infotech! I would like to discuss a website / digital project for my business.'
-  )}`;
-
   return (
     <>
       {/* DESKTOP FLOATING WHATSAPP BUTTON */}
       <motion.a
-        href={whatsappUrl}
+        href={siteConfig.contact.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
@@ -35,7 +31,7 @@ export const FloatingWhatsApp: React.FC = () => {
       {/* MOBILE STICKY BOTTOM ACTION BAR */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-navy-950/95 backdrop-blur-xl border-t border-white/10 p-3 px-4 flex items-center gap-3">
         <a
-          href={whatsappUrl}
+          href={siteConfig.contact.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-growthGreen-500 text-slate-950 text-sm font-bold shadow-lg shadow-growthGreen-500/20 active:scale-[0.98] transition-transform"
@@ -45,7 +41,7 @@ export const FloatingWhatsApp: React.FC = () => {
         </a>
 
         <a
-          href={`tel:${siteConfig.contact.phone.replace(/\s+/g, '')}`}
+          href={siteConfig.contact.phoneHref}
           className="flex-1 flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-electric-500 text-white text-sm font-bold shadow-lg shadow-electric-500/20 active:scale-[0.98] transition-transform"
         >
           <span>Call Now</span>
