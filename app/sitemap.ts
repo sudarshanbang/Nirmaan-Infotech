@@ -1,9 +1,9 @@
 import { MetadataRoute } from 'next';
-import { siteConfig } from '@/lib/config';
 import { servicesData } from '@/lib/data';
+import { SITE_URL } from '@/lib/seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url;
+  const baseUrl = SITE_URL;
 
   const routes = [
     '',
@@ -11,11 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/portfolio',
     '/about',
     '/contact',
+    '/privacy',
+    '/terms',
   ].map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: route === '' ? baseUrl : `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split('T')[0],
     changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1.0 : 0.8,
+    priority: route === '' ? 1.0 : (route === '/privacy' || route === '/terms' ? 0.3 : 0.8),
   }));
 
   const serviceRoutes = servicesData.map((service) => ({

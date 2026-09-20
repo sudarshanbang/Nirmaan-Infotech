@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Nirmaan Infotech",
   tagline: "Build. Grow. Go Digital.",
   description: "Nirmaan Infotech is a premier Indian technology and digital solutions company helping businesses establish, scale, and transform their digital presence through modern web engineering, e-commerce, SEO, and bespoke software solutions.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://nirmaaninfotech.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://nirmaaninfotech.in",
   contact: {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@nirmaaninfotech.in",
     phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || "+91 8208216317",
@@ -22,13 +22,14 @@ export const siteConfig = {
     twitter: process.env.NEXT_PUBLIC_TWITTER_URL || "https://twitter.com/nirmaaninfotech",
   },
   meta: {
-    title: "Nirmaan Infotech | Website Development & Digital Solutions",
-    description: "Nirmaan Infotech helps businesses build professional websites, e-commerce experiences and digital solutions designed for growth.",
+    title: "Website Development Company in India | Nirmaan Infotech",
+    description: "Nirmaan Infotech builds high-performance business websites, e-commerce platforms, and digital solutions engineered for speed, search visibility, and conversion.",
     keywords: [
       "Website Development India",
+      "Web Development Company Pune",
       "E-commerce Development Company",
       "Website Redesign Services",
-      "SEO Services India",
+      "Technical SEO Services India",
       "Custom Digital Solutions",
       "Nirmaan Infotech",
       "Business Website Development",

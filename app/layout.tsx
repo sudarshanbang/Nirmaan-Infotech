@@ -1,11 +1,15 @@
 import type { Metadata, Viewport } from 'next';
 
 export const viewport: Viewport = {
-  themeColor: '#071A36',
+  themeColor: '#ffffff',
+  width: 'device-width',
+  initialScale: 1,
 };
-import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
+
+import { Inter, Figtree, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/lib/config';
+import { getOrganizationSchema, getWebSiteSchema, SITE_URL } from '@/lib/seo';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { BackgroundGlow } from '@/components/ui/BackgroundGlow';
@@ -15,17 +19,26 @@ import { FloatingWhatsApp } from '@/components/layout/FloatingWhatsApp';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  weight: ['300', '400', '500', '600'],
   display: 'swap',
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const figtree = Figtree({
   subsets: ['latin'],
-  variable: '--font-jakarta',
+  variable: '--font-figtree',
+  weight: ['500', '600', '700'],
+  display: 'swap',
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+  weight: ['400', '500'],
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: siteConfig.meta.title,
     template: `%s | ${siteConfig.name}`,
@@ -35,26 +48,19 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   manifest: '/site.webmanifest',
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
-      { url: '/web-app-manifest-192x192.png', sizes: '192x192', type: 'image/png' },
-      { url: '/web-app-manifest-512x512.png', sizes: '512x512', type: 'image/png' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+  alternates: {
+    canonical: SITE_URL,
   },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: siteConfig.url,
+    url: SITE_URL,
     title: siteConfig.meta.title,
     description: siteConfig.meta.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: '/images/logo/logo-light.png',
+        url: `${SITE_URL}/images/logo/logo-light.png`,
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -66,7 +72,7 @@ export const metadata: Metadata = {
     title: siteConfig.meta.title,
     description: siteConfig.meta.description,
     creator: '@nirmaaninfotech',
-    images: ['/images/logo/logo-light.png'],
+    images: [`${SITE_URL}/images/logo/logo-light.png`],
   },
   robots: {
     index: true,
@@ -86,42 +92,27 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/images/logo/logo-light.png`,
-    description: siteConfig.description,
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'IN',
-      addressLocality: 'Pune',
-      addressRegion: 'Maharashtra',
-    },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: siteConfig.contact.phone,
-      contactType: 'customer service',
-      areaServed: 'IN',
-      availableLanguage: ['English', 'Hindi'],
-    },
-  };
+  const orgSchema = getOrganizationSchema();
+  const webSiteSchema = getWebSiteSchema();
 
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${plusJakartaSans.variable} dark scroll-smooth`}
+      className={`${inter.variable} ${figtree.variable} ${ibmPlexMono.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
         />
       </head>
       <body
-        className="relative min-h-screen bg-navy-950 text-slate-100 flex flex-col font-sans"
+        className="relative min-h-screen bg-white text-[#071A36] flex flex-col font-sans selection:bg-[#1677FF] selection:text-white"
         suppressHydrationWarning
       >
         <BackgroundGlow />

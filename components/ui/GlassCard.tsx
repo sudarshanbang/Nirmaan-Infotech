@@ -6,9 +6,9 @@ import { cn } from '@/lib/utils';
 
 interface GlassCardProps extends HTMLMotionProps<'div'> {
   children: React.ReactNode;
-  variant?: 'default' | 'glow' | 'subtle' | 'interactive' | 'light';
+  variant?: 'default' | 'glow' | 'subtle' | 'interactive' | 'cobalt' | 'ember' | 'light';
   className?: string;
-  glowColor?: 'blue' | 'cyan' | 'green';
+  glowColor?: 'blue' | 'purple' | 'ember';
 }
 
 export const GlassCard: React.FC<GlassCardProps> = ({
@@ -18,20 +18,22 @@ export const GlassCard: React.FC<GlassCardProps> = ({
   glowColor = 'blue',
   ...props
 }) => {
-  const baseStyles = "relative rounded-2xl transition-all duration-300 overflow-hidden";
+  const baseStyles = "relative transition-all duration-300 overflow-hidden";
   
   const variantStyles = {
-    default: "bg-white/95 sm:backdrop-blur-xl border border-slate-200/80 hover:border-blue-500/40 shadow-lg hover:shadow-xl text-slate-800",
-    glow: "bg-white/95 sm:backdrop-blur-xl border border-blue-500/40 shadow-xl shadow-blue-500/10 text-slate-800",
-    subtle: "bg-slate-100/90 sm:backdrop-blur-md border border-slate-200/60 hover:border-slate-300 text-slate-800",
-    interactive: "bg-white/95 sm:backdrop-blur-xl border border-slate-200/80 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/10 hover:-translate-y-1.5 cursor-pointer group text-slate-800",
-    light: "bg-white border border-slate-200/80 shadow-md text-slate-800",
+    default: "bg-white border border-[#e2e8f0] text-[#071A36] rounded-xl shadow-sm",
+    glow: "bg-white border border-[#e2e8f0] shadow-md text-[#071A36] rounded-xl",
+    subtle: "bg-[#f1f5f9] border border-[#e2e8f0] text-[#64748b] rounded-xl",
+    interactive: "bg-white border border-[#e2e8f0] hover:border-[#071A36] hover:bg-[#f1f5f9]/50 shadow-sm hover:shadow-md cursor-pointer group text-[#071A36] rounded-xl",
+    cobalt: "bg-[#0B2A5B] border border-white/10 text-white rounded-xl shadow-xl",
+    ember: "bg-[#1677FF] border-none text-white rounded-none shadow-none", // Featured Electric Blue Hard Card (0px radius)
+    light: "bg-white border border-[#e2e8f0] text-[#071A36] rounded-xl shadow-sm",
   };
 
   const glowOverlays = {
-    blue: "from-blue-500/10 via-transparent to-transparent",
-    cyan: "from-cyan-400/10 via-transparent to-transparent",
-    green: "from-emerald-500/10 via-transparent to-transparent",
+    blue: "from-[#1677FF]/10 via-transparent to-transparent",
+    purple: "from-[#23A9FF]/15 via-transparent to-transparent",
+    ember: "from-[#1677FF]/25 via-transparent to-transparent",
   };
 
   return (
@@ -39,14 +41,16 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       className={cn(baseStyles, variantStyles[variant], className)}
       {...props}
     >
-      {/* Subtle Ambient Radial Light Flare */}
-      <div className={cn(
-        "hidden sm:block absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br rounded-full blur-2xl opacity-40 pointer-events-none group-hover:opacity-70 transition-opacity duration-500",
-        glowOverlays[glowColor]
-      )} />
+      {/* Hairline Ambient Light Accent */}
+      {variant !== 'ember' && (
+        <div className={cn(
+          "hidden sm:block absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br rounded-full blur-2xl opacity-30 pointer-events-none group-hover:opacity-60 transition-opacity duration-500",
+          glowOverlays[glowColor]
+        )} />
+      )}
       
-      {/* Content wrapper */}
-      <div className="relative z-10 p-5 sm:p-6 md:p-8">
+      {/* Content Container */}
+      <div className="relative z-10 p-5 sm:p-6 md:p-7">
         {children}
       </div>
     </motion.div>

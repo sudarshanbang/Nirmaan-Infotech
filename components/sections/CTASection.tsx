@@ -1,51 +1,53 @@
-'use client';
-
 import React from 'react';
-import { Button } from '@/components/ui/Button';
+import Link from 'next/link';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { siteConfig } from '@/lib/config';
-import { MessageSquare, Sparkles } from 'lucide-react';
+import { MessageSquare, Sparkles, ArrowRight } from 'lucide-react';
 
 export const CTASection: React.FC = () => {
   return (
-    <section className="relative py-20 lg:py-32 bg-slate-50 text-slate-900 z-10 overflow-hidden">
+    <section className="relative py-20 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-b border-[#e2e8f0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <ScrollReveal>
-          <div className="relative rounded-3xl bg-gradient-to-r from-blue-700 via-indigo-700 to-navy-950 border border-blue-500/40 p-8 sm:p-14 lg:p-20 overflow-hidden shadow-2xl text-center text-white">
+          <div className="relative rounded-3xl bg-[#071A36] border border-white/10 p-8 sm:p-14 lg:p-20 overflow-hidden shadow-2xl text-center text-white">
             
-            {/* Background ambient flares */}
-            <div className="absolute -top-32 -right-32 w-80 h-80 bg-sky-400/20 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl pointer-events-none" />
+            {/* Background ambient royal blue glow */}
+            <div className="absolute -top-32 -right-32 w-80 h-80 bg-[#1677FF]/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 max-w-3xl mx-auto space-y-6">
               
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/10 border border-white/20 text-sky-200 backdrop-blur-md">
-                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-white/10 border border-white/20 text-white">
+                <Sparkles className="w-3.5 h-3.5 text-[#1677FF]" />
                 <span>Let&apos;s Build Together</span>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-[-0.035em] leading-tight font-heading">
                 READY TO BUILD <br />
-                SOMETHING BETTER?
+                SOMETHING BETTER<span className="text-[#1677FF]">.</span>
               </h2>
 
-              <p className="text-base sm:text-lg text-blue-100 leading-relaxed font-normal max-w-2xl mx-auto">
+              <p className="text-[18px] text-slate-300 leading-[1.61] font-normal max-w-2xl mx-auto">
                 Tell us about your business and let&apos;s create a digital experience that moves it forward.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-                <Button href="/contact" variant="primary" size="lg" showArrow className="w-full sm:w-auto bg-white hover:bg-slate-100 text-blue-800 border-none font-extrabold shadow-xl">
-                  Start Your Project
-                </Button>
+                <Link
+                  href="/contact"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#1677FF] text-white font-bold text-base shadow-lg transition-all duration-300 hover:bg-white hover:text-[#1677FF] hover:shadow-[0_0_30px_rgba(22,119,255,0.4)] active:scale-95 group"
+                >
+                  <span>Start Your Project</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
 
                 <a
                   href={siteConfig.contact.whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-growthGreen-500 hover:bg-growthGreen-400 text-slate-950 font-extrabold text-base shadow-xl transition-all duration-300 active:scale-95"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-[#10B981] text-white font-bold text-base shadow-lg transition-all duration-300 hover:bg-white hover:text-[#10B981] hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] active:scale-95 group"
                 >
-                  <MessageSquare className="w-5 h-5 fill-slate-950" />
+                  <MessageSquare className="w-5 h-5 fill-white text-white group-hover:fill-[#10B981] group-hover:text-[#10B981] transition-colors duration-300" />
                   <span>Talk on WhatsApp</span>
                 </a>
               </div>

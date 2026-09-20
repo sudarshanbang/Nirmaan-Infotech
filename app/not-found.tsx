@@ -3,11 +3,14 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { Button } from '@/components/ui/Button';
 import { Home, ArrowLeft } from 'lucide-react';
+import { createMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: 'Page Not Found | Nirmaan Infotech',
-  description: 'The requested page could not be found.',
-};
+  description: 'The requested page could not be found on Nirmaan Infotech.',
+  path: '/404',
+  noIndex: true,
+});
 
 export default function NotFound() {
   return (

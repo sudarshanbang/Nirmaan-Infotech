@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { siteConfig } from '@/lib/config';
+import { SITE_URL } from '@/lib/seo';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: `${siteConfig.url}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

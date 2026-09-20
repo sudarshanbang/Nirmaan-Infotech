@@ -351,21 +351,7 @@ export const portfolioData: PortfolioItem[] = [
     statsLabel: "Aesthetic",
     statsValue: "Linear-Grade",
   },
-  {
-    id: "concept-business",
-    title: "Kavya Legal & Strategic Advisors",
-    category: "Business",
-    badge: "Concept Project",
-    shortDesc: "Corporate corporate services website designed to project authority, trust, and professional excellence.",
-    overview: "An authoritative corporate website for legal and financial consultancies serving high-net-worth clients and corporate firms.",
-    challenge: "Outdated legacy templates damaged brand authority and failed to showcase advisory practice expertise.",
-    solution: "Implemented dark navy editorial aesthetics, clean typography, partner bios, and structured consultation request forms.",
-    keyFeatures: ["Practice Area Deep Dives", "Partner Profile Cards", "Secure Enquiry Form", "Responsive Legal Disclaimer Footer"],
-    image: "/images/showcase/concept-business.jpg",
-    accentColor: "#0B2A5B",
-    statsLabel: "Trust Index",
-    statsValue: "Enterprise",
-  },
+
 ];
 
 // 3. PROBLEM CARDS (HOMEPAGE SECTION 3)

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -18,34 +18,59 @@ interface MobileMenuProps {
 export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLinks }) => {
   const [servicesAccordionOpen, setServicesAccordionOpen] = useState(false);
 
+  // Lock body scroll when mobile menu is open & listen for ESC key
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          id="mobile-navigation"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation Menu"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
-          className="fixed inset-0 top-[56px] sm:top-[64px] z-40 bg-white md:hidden flex flex-col justify-between overflow-y-auto px-5 py-6 shadow-2xl"
+          className="fixed inset-0 top-[56px] sm:top-[64px] z-40 bg-[#071A36] text-white md:hidden flex flex-col justify-between overflow-y-auto px-5 py-6 pb-24 shadow-2xl border-b border-white/20"
         >
           <div className="space-y-5">
             {/* LOGO & TITLE IN MOBILE DRAWER */}
-            <div className="pb-4 border-b border-slate-100 flex items-center justify-between">
+            <div className="pb-4 border-b border-white/15 flex items-center justify-between">
               <div className="relative h-8 w-40">
                 <Image
-                  src="/images/logo/logo-dark.png"
+                  src="/images/logo/logo-light.png"
                   alt={siteConfig.name}
                   fill
                   className="object-contain object-left"
                 />
               </div>
-              <span className="text-xs font-mono font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
-                Navigation
+              <span className="text-xs font-mono font-bold text-white bg-[#1677FF] px-3 py-1 rounded-full">
+                Menu
               </span>
             </div>
 
             {/* NAV LINKS LIST */}
-            <nav className="flex flex-col space-y-1.5">
+            <nav className="flex flex-col space-y-2">
               {navLinks.map((link) => {
                 if (link.hasDropdown) {
                   return (
@@ -53,11 +78,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLink
                       <button
                         type="button"
                         onClick={() => setServicesAccordionOpen(!servicesAccordionOpen)}
-                        className="flex items-center justify-between w-full py-3 px-3.5 text-base font-bold text-slate-900 bg-slate-50/80 hover:bg-slate-100 rounded-xl transition-colors text-left border border-slate-100"
+                        className="flex items-center justify-between w-full py-3.5 px-5 text-base font-bold text-white bg-white/10 hover:bg-white/15 rounded-full transition-colors text-left border border-white/10"
                       >
-                        <span className="text-slate-900">{link.name}</span>
+                        <span className="text-white">{link.name}</span>
                         <ChevronDown
-                          className={`w-5 h-5 text-electric-600 transition-transform duration-200 ${
+                          className={`w-5 h-5 text-[#1677FF] transition-transform duration-200 ${
                             servicesAccordionOpen ? 'rotate-180' : ''
                           }`}
                         />
@@ -71,17 +96,17 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLink
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.2 }}
-                            className="overflow-hidden my-2 ml-2 pl-3 space-y-1.5 border-l-2 border-electric-500 bg-slate-50/50 p-2.5 rounded-r-xl border border-slate-100"
+                            className="overflow-hidden my-2 ml-2 pl-3 space-y-1.5 border-l-2 border-[#1677FF] bg-white/5 p-3 rounded-2xl border border-white/10"
                           >
                             {servicesData.map((service) => (
                               <Link
                                 key={service.id}
                                 href={`/services/${service.slug}`}
                                 onClick={onClose}
-                                className="flex items-center justify-between py-2.5 px-3 text-sm font-semibold text-slate-800 hover:text-electric-600 hover:bg-white rounded-lg transition-colors border border-transparent hover:border-slate-200/80 shadow-xs"
+                                className="flex items-center justify-between py-2.5 px-3 text-sm font-semibold text-slate-300 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
                               >
-                                <span className="text-slate-900">{service.title}</span>
-                                <ArrowRight className="w-3.5 h-3.5 text-electric-500" />
+                                <span>{service.title}</span>
+                                <ArrowRight className="w-3.5 h-3.5 text-[#1677FF]" />
                               </Link>
                             ))}
                           </motion.div>
@@ -96,7 +121,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLink
                     key={link.name}
                     href={link.href}
                     onClick={onClose}
-                    className="py-3 px-3.5 text-base font-bold text-slate-900 bg-slate-50/80 hover:bg-slate-100 hover:text-electric-600 rounded-xl transition-colors border border-slate-100"
+                    className="py-3.5 px-5 text-base font-bold text-white bg-white/10 hover:bg-white/15 rounded-full transition-colors border border-white/10"
                   >
                     {link.name}
                   </Link>
@@ -106,16 +131,16 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLink
           </div>
 
           {/* BOTTOM ACTIONS & DIRECT CONTACT */}
-          <div className="pt-5 mt-6 border-t border-slate-100 space-y-4">
+          <div className="pt-5 mt-6 border-t border-white/15 space-y-4">
             <Button
               href="/contact"
-              variant="primary"
+              variant="ember"
               size="lg"
               showArrow
-              className="w-full justify-center shadow-lg shadow-blue-500/15 font-bold text-base py-3"
+              className="w-full justify-center text-base py-3.5"
               onClick={onClose}
             >
-              Get a Free Consultation
+              Get Started Now
             </Button>
 
             <div className="grid grid-cols-2 gap-3 pt-1">
@@ -123,22 +148,22 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLink
                 href={siteConfig.contact.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-bold hover:bg-emerald-100 transition-colors"
+                className="flex items-center justify-center gap-2 py-3 px-3 rounded-full bg-[#10B981]/20 border border-[#10B981]/40 text-[#10B981] text-xs font-bold hover:bg-[#10B981]/30 transition-colors"
               >
-                <MessageSquare className="w-4 h-4 text-emerald-600" />
+                <MessageSquare className="w-4 h-4 text-[#10B981]" />
                 <span>WhatsApp</span>
               </a>
 
               <a
                 href={siteConfig.contact.phoneHref}
-                className="flex items-center justify-center gap-2 py-3 px-3 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold hover:bg-blue-100 transition-colors"
+                className="flex items-center justify-center gap-2 py-3 px-3 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold hover:bg-white/20 transition-colors"
               >
-                <Phone className="w-4 h-4 text-blue-600" />
+                <Phone className="w-4 h-4 text-white" />
                 <span>Call Us</span>
               </a>
             </div>
 
-            <p className="text-center text-xs font-semibold text-slate-500 pt-1">
+            <p className="text-center text-xs font-mono text-slate-300 pt-1">
               {siteConfig.tagline}
             </p>
           </div>
