@@ -67,9 +67,9 @@ export const Header: React.FC = () => {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/90 backdrop-blur-md border-b border-[#e2e8f0] shadow-sm py-2.5 sm:py-3'
-            : 'bg-white/70 backdrop-blur-sm border-b border-[#e2e8f0]/50 py-3 sm:py-3.5'
+          isScrolled || mobileMenuOpen
+            ? 'bg-white/95 backdrop-blur-md border-b border-[#e2e8f0] shadow-sm py-2.5 sm:py-3'
+            : 'bg-white/80 backdrop-blur-sm border-b border-[#e2e8f0]/50 py-3 sm:py-3.5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -212,7 +212,11 @@ export const Header: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="md:hidden p-2 rounded-full text-[#071A36] bg-[#f1f5f9] hover:bg-[#071A36] hover:text-white focus:outline-none transition-colors border border-[#e2e8f0]"
+                className={`md:hidden p-2.5 rounded-xl transition-all border flex items-center justify-center ${
+                  mobileMenuOpen
+                    ? 'bg-[#071A36] text-white border-[#071A36] shadow-sm'
+                    : 'text-[#071A36] bg-[#f1f5f9] hover:bg-[#071A36] hover:text-white border-[#e2e8f0]'
+                }`}
                 aria-label="Toggle navigation menu"
                 aria-expanded={mobileMenuOpen}
                 aria-controls="mobile-navigation"

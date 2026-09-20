@@ -4,6 +4,7 @@ export const viewport: Viewport = {
   themeColor: '#ffffff',
   width: 'device-width',
   initialScale: 1,
+  maximumScale: 5,
 };
 
 import { Inter, Figtree, IBM_Plex_Mono } from 'next/font/google';
@@ -98,7 +99,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${figtree.variable} ${ibmPlexMono.variable} scroll-smooth`}
+      className={`${inter.variable} ${figtree.variable} ${ibmPlexMono.variable} scroll-smooth w-full max-w-full overflow-x-hidden`}
       suppressHydrationWarning
     >
       <head>
@@ -112,13 +113,13 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="relative min-h-screen bg-white text-[#071A36] flex flex-col font-sans selection:bg-[#1677FF] selection:text-white"
+        className="relative min-h-screen bg-white text-[#071A36] flex flex-col font-sans selection:bg-[#1677FF] selection:text-white w-full max-w-full overflow-x-hidden"
         suppressHydrationWarning
       >
         <BackgroundGlow />
         <CustomCursor />
         <Header />
-        <main className="flex-1 relative z-10">{children}</main>
+        <main className="flex-1 relative z-10 w-full max-w-full overflow-x-hidden">{children}</main>
         <Footer />
         <FloatingWhatsApp />
       </body>

@@ -27,30 +27,30 @@ export const TrustBuildingSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-20 lg:py-32 bg-[#D3F4F1] text-[#071A36] z-10 overflow-hidden border-t border-[#E2E8F0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-[#D3F4F1] text-[#071A36] z-10 overflow-hidden border-t border-[#E2E8F0] w-full max-w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-[#1677FF]/10 border border-[#1677FF]/20 text-[#1677FF] mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-[#1677FF] animate-pulse" />
             <span>Company Standard</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#071A36] tracking-tight leading-tight font-heading">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#071A36] tracking-tight leading-tight font-heading break-words max-w-full">
             TRUST IS BUILT <br className="hidden sm:inline" />
             ONE PROJECT AT A TIME<span className="text-[#1677FF]">.</span>
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+          <p className="mt-4 text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed font-normal">
             As a growing Indian digital technology company, we earn client trust through quality execution, transparent communication, and engineering excellence.
           </p>
         </ScrollReveal>
 
         {/* 4 TRUST PILLARS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 sm:mb-16 min-w-0">
           {trustPillars.map((pillar, index) => (
-            <ScrollReveal key={pillar.title} delay={index * 0.08}>
-              <div className="relative z-10 h-full p-6 rounded-xl bg-white border border-slate-200 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 hover:shadow-[0_0_35px_rgba(22,119,255,0.4)] hover:border-[#1677FF]/50 hover:z-20 shadow-[0_8px_30px_rgb(0,0,0,0.04)] cursor-default group">
+            <ScrollReveal key={pillar.title} delay={index * 0.08} className="w-full min-w-0">
+              <div className="relative z-10 h-full p-5 sm:p-6 rounded-xl bg-white border border-slate-200 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 hover:shadow-[0_0_35px_rgba(22,119,255,0.4)] hover:border-[#1677FF]/50 hover:z-20 shadow-[0_8px_30px_rgb(0,0,0,0.04)] cursor-default group w-full max-w-full min-w-0">
                 <div className="p-3 rounded-xl bg-[#F1F5F9] border border-slate-200 w-fit mb-4 transition-colors duration-300 group-hover:bg-[#1677FF]/10 group-hover:border-[#1677FF]/30">
                   {pillar.icon}
                 </div>

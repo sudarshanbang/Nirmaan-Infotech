@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
   :root {
     --color-deep-ink: #071A36;
     --color-pure-white: #ffffff;
@@ -18,15 +22,40 @@
     --font-mono: 'IBM Plex Mono', monospace;
   }
 
+  html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
-    @apply bg-[#ffffff] text-[#071A36] antialiased selection:bg-[#1677FF] selection:text-white overflow-x-hidden;
+    @apply bg-[#ffffff] text-[#071A36] antialiased selection:bg-[#1677FF] selection:text-white;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    position: relative;
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-figtree), sans-serif;
     letter-spacing: -0.025em;
     font-weight: 700;
+    overflow-wrap: break-word;
+  }
+
+  p, a, span {
+    overflow-wrap: break-word;
   }
 }
 

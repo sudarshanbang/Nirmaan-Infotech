@@ -65,7 +65,7 @@ function ServiceCard({
   const [isMobile, setIsMobile] = React.useState(false);
 
   React.useEffect(() => {
-    const update = () => setIsMobile(window.innerWidth < 768);
+    const update = () => setIsMobile(window.innerWidth < 1024);
     update();
     window.addEventListener('resize', update, { passive: true });
     return () => window.removeEventListener('resize', update);
@@ -79,17 +79,17 @@ function ServiceCard({
   const blur = useTransform(progress, [start, end], [0, 3]);
   const filter = useTransform(blur, (v) => `blur(${v}px)`);
 
-  const topOffset = isMobile ? `${68 + index * 8}px` : `${96 + index * 16}px`;
+  const topOffset = `${96 + index * 16}px`;
   const filterStyle = prefersReducedMotion || isMobile ? 'none' : filter;
 
   return (
     <motion.div
-      className="sticky w-full max-w-[1100px] mx-auto overflow-hidden bg-white/95 backdrop-blur-md rounded-[20px] sm:rounded-[24px] shadow-[0_20px_60px_rgba(15,23,42,0.10)] border border-slate-200"
+      className="relative lg:sticky w-full max-w-[1100px] mx-auto overflow-hidden bg-white/95 backdrop-blur-md rounded-[20px] sm:rounded-[24px] shadow-[0_20px_60px_rgba(15,23,42,0.10)] border border-slate-200 mb-6 sm:mb-8 lg:mb-0"
       style={{
-        top: topOffset,
-        zIndex: index + 10,
-        scale: prefersReducedMotion ? 1 : scale,
-        opacity: prefersReducedMotion ? 1 : opacity,
+        top: isMobile ? undefined : topOffset,
+        zIndex: isMobile ? 1 : index + 10,
+        scale: prefersReducedMotion || isMobile ? 1 : scale,
+        opacity: prefersReducedMotion || isMobile ? 1 : opacity,
         filter: filterStyle,
         transformOrigin: 'top center',
       }}
@@ -137,7 +137,7 @@ function ServiceCard({
             </p>
             <Link 
               href={`/services/${service.slug}`}
-              className="inline-flex items-center justify-center px-6 py-3 text-xs font-bold text-white bg-[#1677FF] rounded-full hover:bg-[#005CE6] transition-colors shadow-[0_4px_14px_rgba(22,119,255,0.4)]"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 text-xs sm:text-sm font-bold text-white bg-[#1677FF] rounded-full hover:bg-[#005CE6] transition-colors shadow-[0_4px_14px_rgba(22,119,255,0.4)] text-center"
             >
               View Full Specs & Scope
             </Link>
@@ -145,7 +145,7 @@ function ServiceCard({
         </div>
 
         {/* IMAGE/ILLUSTRATION SIDE */}
-        <div className="w-full lg:w-[45%] bg-[#071A36] rounded-[20px] p-8 flex flex-col items-center justify-center relative overflow-hidden shadow-inner min-h-[300px] lg:min-h-full my-2 lg:m-2">
+        <div className="w-full lg:w-[45%] bg-[#071A36] rounded-[20px] p-6 sm:p-8 flex flex-col items-center justify-center relative overflow-hidden shadow-inner min-h-[220px] sm:min-h-[280px] lg:min-h-full my-2 lg:m-2">
           {/* Subtle grid background for tech feel */}
           <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
           

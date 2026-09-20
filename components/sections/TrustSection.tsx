@@ -43,8 +43,8 @@ export const TrustSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-16 md:py-24 bg-white border-b border-[#e2e8f0] z-10 overflow-hidden text-[#071A36]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 md:py-24 bg-white border-b border-[#e2e8f0] z-10 overflow-hidden text-[#071A36] w-full max-w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest bg-[#f1f5f9] border border-[#e2e8f0] text-[#1677FF] mb-4 shadow-sm">
@@ -52,23 +52,23 @@ export const TrustSection: React.FC = () => {
             <span>Digital Credibility</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#071A36] tracking-tight leading-tight font-heading">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#071A36] tracking-tight leading-tight font-heading break-words max-w-full">
             YOUR BUSINESS DESERVES <br className="hidden sm:inline" />
             A STRONG DIGITAL PRESENCE<span className="text-[#1677FF]">.</span>
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-[#64748b] leading-relaxed font-normal">
+          <p className="mt-4 text-sm sm:text-base md:text-lg text-[#64748b] leading-relaxed font-normal">
             From your first website to your next digital product, we create technology that helps your business look professional, connect with customers, and grow online.
           </p>
         </ScrollReveal>
 
         {/* 4 VALUE INDICATOR CARDS WITH HOVER REVEAL COVER COLLAPSE */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 min-w-0">
           {valueIndicators.map((item, index) => {
             const isOpen = openIndex === index;
 
             return (
-              <ScrollReveal key={item.title} delay={index * 0.08}>
+              <ScrollReveal key={item.title} delay={index * 0.08} className="w-full min-w-0">
                 <div
                   tabIndex={0}
                   role="button"
@@ -80,7 +80,7 @@ export const TrustSection: React.FC = () => {
                       setOpenIndex(isOpen ? null : index);
                     }
                   }}
-                  className={`card group relative min-h-[350px] bg-white rounded-2xl border border-[#e2e8f0] shadow-md hover:shadow-2xl hover:border-[#6885b0] transition-all duration-300 overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#6885b0] focus:ring-offset-2 ${
+                  className={`card group relative min-h-[340px] sm:min-h-[350px] w-full max-w-full min-w-0 bg-white rounded-2xl border border-[#e2e8f0] shadow-md hover:shadow-2xl hover:border-[#6885b0] transition-all duration-300 overflow-hidden cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#6885b0] focus:ring-offset-2 ${
                     isOpen ? 'is-open' : ''
                   }`}
                 >

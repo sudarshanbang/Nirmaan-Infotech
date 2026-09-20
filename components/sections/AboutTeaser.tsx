@@ -37,32 +37,32 @@ export const AboutTeaser: React.FC<AboutTeaserProps> = ({ isPageHeader = false }
   ];
 
   return (
-    <section className="relative py-20 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-b border-[#e2e8f0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-b border-[#e2e8f0] w-full max-w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center min-w-0">
           
           {/* LEFT STORY COPY */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="w-full min-w-0 lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#f1f5f9] border border-[#e2e8f0] text-[#071A36] shadow-sm">
               <span className="w-2 h-2 rounded-full bg-[#1677FF] animate-pulse" />
               <span>About Nirmaan Infotech</span>
             </div>
 
-            <HeadingTag className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-none font-heading">
+            <HeadingTag className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-tight sm:leading-none font-heading break-words max-w-full">
               WE BUILD TECHNOLOGY <br className="hidden sm:inline" />
               AROUND YOUR BUSINESS<span className="text-[#1677FF]">.</span>
             </HeadingTag>
 
-            <p className="text-[18px] text-[#64748b] leading-[1.61] font-normal">
+            <p className="text-sm sm:text-base md:text-[18px] text-[#64748b] leading-[1.61] font-normal">
               Nirmaan Infotech is a digital technology company focused on helping businesses build a stronger presence online.
             </p>
 
-            <p className="text-[18px] text-[#64748b] leading-[1.61] font-normal">
+            <p className="text-sm sm:text-base md:text-[18px] text-[#64748b] leading-[1.61] font-normal">
               We create professional websites and digital solutions designed around real business needs—not just attractive designs, but digital experiences that are easy to use, mobile-friendly, fast, and built with growth in mind.
             </p>
 
-            <p className="text-[18px] text-[#64748b] leading-[1.61] font-normal">
+            <p className="text-sm sm:text-base md:text-[18px] text-[#64748b] leading-[1.61] font-normal">
               From a new business launching its first website to an established company looking to modernize its digital presence, we work to make technology simple, practical and valuable.
             </p>
 
@@ -74,8 +74,8 @@ export const AboutTeaser: React.FC<AboutTeaserProps> = ({ isPageHeader = false }
           </div>
 
           {/* RIGHT ANIMATED CONNECTED NODES GRAPHIC */}
-          <div className="lg:col-span-6">
-            <div className="p-5 sm:p-8 border border-[#e2e8f0] shadow-lg rounded-2xl bg-white">
+          <div className="w-full min-w-0 lg:col-span-6">
+            <div className="p-4 sm:p-8 border border-[#e2e8f0] shadow-lg rounded-2xl bg-white w-full max-w-full min-w-0">
               <div className="text-center mb-8">
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-[#1677FF] block mb-1">
                   Brand Philosophy Architecture

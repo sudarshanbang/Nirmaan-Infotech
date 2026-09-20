@@ -25,27 +25,27 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ isPageHeader
   const HeadingTag = isPageHeader ? 'h1' : 'h2';
 
   return (
-    <section className="relative py-20 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-b border-[#e2e8f0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-b border-[#e2e8f0] w-full max-w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#f1f5f9] border border-[#e2e8f0] text-[#071A36] mb-4 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#1677FF] animate-pulse" />
             <span>Digital Portfolio</span>
           </div>
 
-          <HeadingTag className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-none font-heading">
+          <HeadingTag className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-tight sm:leading-none font-heading break-words max-w-full">
             EXPLORE OUR <br className="hidden sm:inline" />
             DESIGN & TECH WORK<span className="text-[#1677FF]">.</span>
           </HeadingTag>
 
-          <p className="mt-4 text-[18px] text-[#64748b] leading-[1.61] font-normal">
+          <p className="mt-4 text-sm sm:text-base md:text-[18px] text-[#64748b] leading-[1.61] font-normal">
             Showcasing live client deployments and high-impact technology concept builds across diverse business domains.
           </p>
         </ScrollReveal>
 
         {/* CATEGORY FILTER TABS (PILL BUTTONS) */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-10 sm:mb-12">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -62,7 +62,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ isPageHeader
         </div>
 
         {/* PORTFOLIO GRID */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <motion.div layout className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 min-w-0">
           <AnimatePresence>
             {filteredProjects.map((project) => (
               <motion.div

@@ -19,12 +19,12 @@ export default function TermsOfServicePage() {
   ]);
 
   return (
-    <main className="min-h-screen pt-32 pb-20 bg-white text-[#071A36]">
+    <main className="min-h-screen pt-32 pb-20 bg-white text-[#071A36] w-full max-w-full overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
       />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-xs font-bold text-[#64748b] hover:text-[#071A36] transition-colors mb-8"
@@ -33,13 +33,13 @@ export default function TermsOfServicePage() {
           <span>Back to Home</span>
         </Link>
 
-        <div className="bg-white rounded-2xl border border-[#e2e8f0] shadow-md p-6 sm:p-10 space-y-8">
+        <div className="bg-white rounded-2xl border border-[#e2e8f0] shadow-md p-6 sm:p-10 space-y-8 w-full min-w-0">
           <div className="border-b border-[#e2e8f0] pb-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#f1f5f9] border border-[#e2e8f0] text-[#1677FF] text-xs font-semibold uppercase tracking-widest mb-3">
               <FileText className="w-4 h-4 text-[#1677FF]" />
               <span>Service Terms</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-[#071A36] tracking-tight font-heading">
+            <h1 className="text-2xl sm:text-4xl font-extrabold text-[#071A36] tracking-tight font-heading break-words max-w-full">
               Terms of Service
             </h1>
             <p className="text-xs text-[#64748b] font-mono mt-2">
@@ -47,7 +47,7 @@ export default function TermsOfServicePage() {
             </p>
           </div>
 
-          <div className="space-y-6 text-sm text-[#64748b] leading-relaxed font-normal">
+          <div className="space-y-6 text-sm text-[#64748b] leading-relaxed font-normal break-words">
             <section className="space-y-2">
               <h2 className="text-lg font-bold text-[#071A36] font-heading">1. Acceptance of Terms</h2>
               <p>

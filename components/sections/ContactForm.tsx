@@ -144,10 +144,10 @@ export const ContactForm: React.FC = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="w-full max-w-6xl mx-auto"
+      className="w-full max-w-6xl mx-auto min-w-0"
     >
       {/* UNIFIED WHITE CARD CONTAINER (MATCHING REFERENCE IMAGE) */}
-      <div className="rounded-[32px] bg-white border border-slate-100 shadow-[0_25px_70px_rgba(0,0,0,0.07)] p-4 sm:p-6 lg:p-8">
+      <div className="rounded-2xl sm:rounded-[32px] bg-white border border-slate-100 shadow-[0_25px_70px_rgba(0,0,0,0.07)] p-4 sm:p-6 lg:p-8 w-full max-w-full min-w-0">
         
         {/* SUCCESS SCREEN */}
         {status === 'success' ? (
@@ -240,10 +240,10 @@ export const ContactForm: React.FC = () => {
           </motion.div>
         ) : (
           /* TWO-COLUMN LAYOUT: LEFT CONTACT INFO + RIGHT FORM */
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch min-w-0">
             
             {/* ─── LEFT COLUMN: VIBRANT TEAL CONTACT INFORMATION PANEL ────────── */}
-            <div className="lg:col-span-5 rounded-[24px] bg-[#00BFA6] text-white p-7 sm:p-10 relative overflow-hidden flex flex-col justify-between shadow-lg shadow-[#00BFA6]/20">
+            <div className="w-full min-w-0 lg:col-span-5 rounded-2xl sm:rounded-[24px] bg-[#00BFA6] text-white p-6 sm:p-10 relative overflow-hidden flex flex-col justify-between shadow-lg shadow-[#00BFA6]/20">
               
               {/* DECORATIVE 3D TRANSLUCENT SPHERES (FROM REFERENCE IMAGE) */}
               <div className="absolute -bottom-14 -right-14 w-52 h-52 rounded-full bg-gradient-to-tl from-white/35 via-white/15 to-transparent pointer-events-none backdrop-blur-[2px]" />
@@ -329,7 +329,7 @@ export const ContactForm: React.FC = () => {
             </div>
 
             {/* ─── RIGHT COLUMN: CLEAN MINIMALIST FORM (UNDERLINE STYLE) ────────── */}
-            <div className="lg:col-span-7 p-2 sm:p-4 lg:p-6 flex flex-col justify-center">
+            <div className="w-full min-w-0 lg:col-span-7 p-1 sm:p-4 lg:p-6 flex flex-col justify-center">
               <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
                 
                 {/* ROW 1: YOUR NAME & YOUR EMAIL */}

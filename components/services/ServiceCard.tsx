@@ -36,7 +36,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, isActi
     initial={false}
     animate={{ y: isActive ? -5 : 0, scale: isActive ? 1.008 : 1, backgroundColor: isActive ? 'rgba(22, 119, 255, 0.07)' : '#ffffff', borderColor: isActive ? '#1677FF' : '#e2e8f0', boxShadow: isActive ? '0 20px 45px rgba(22, 119, 255, 0.16), 0 0 25px rgba(22, 119, 255, 0.10)' : '0 2px 8px rgba(7, 26, 54, 0.04)' }}
     transition={{ duration: isReducedMotion ? 0.01 : 0.72, ease }}
-    className="relative flex min-h-[256px] cursor-pointer flex-col overflow-hidden rounded-2xl border-2 p-6 text-[#071A36] outline-none focus-visible:ring-2 focus-visible:ring-[#1677FF] focus-visible:ring-offset-4 sm:p-8 md:h-[620px] md:min-h-0"
+    className="relative flex min-h-[256px] w-full max-w-full min-w-0 cursor-pointer flex-col overflow-hidden rounded-2xl border-2 p-5 sm:p-8 text-[#071A36] outline-none focus-visible:ring-2 focus-visible:ring-[#1677FF] focus-visible:ring-offset-4 md:h-[620px] md:min-h-0"
   >
     {/* AMBIENT TRANSLUCENT BLUE GLOW ACCENT */}
     <motion.div animate={{ opacity: isActive ? 1 : 0 }} transition={{ duration: isReducedMotion ? 0.01 : 0.5 }} className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#1677FF]/10 blur-3xl" />
@@ -46,8 +46,8 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, isActi
       <motion.span animate={{ backgroundColor: isActive ? 'rgba(22, 119, 255, 0.12)' : '#f1f5f9', borderColor: isActive ? 'rgba(22, 119, 255, 0.3)' : '#e2e8f0', color: isActive ? '#1677FF' : '#64748b' }} transition={{ duration: isReducedMotion ? 0.01 : 0.45, ease }} className="rounded-full border px-3.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider">Solution {String(index + 1).padStart(2, '0')}</motion.span>
     </div>
     <div className="relative z-10 mt-5">
-      <motion.h3 animate={{ color: '#071A36', y: isActive ? 0 : 2 }} transition={reveal(0.06)} className="font-heading text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl">{service.title}</motion.h3>
-      <motion.p animate={{ color: isActive ? '#475569' : '#64748b', y: isActive ? 0 : 2 }} transition={reveal(0.12)} className="mt-3 max-w-[34rem] text-sm leading-[1.55] sm:text-base">{isActive ? service.fullDesc : service.shortDesc}</motion.p>
+      <motion.h3 animate={{ color: '#071A36', y: isActive ? 0 : 2 }} transition={reveal(0.06)} className="font-heading text-xl sm:text-2xl lg:text-3xl font-extrabold leading-tight tracking-tight break-words max-w-full">{service.title}</motion.h3>
+      <motion.p animate={{ color: isActive ? '#475569' : '#64748b', y: isActive ? 0 : 2 }} transition={reveal(0.12)} className="mt-3 max-w-full text-xs sm:text-sm md:text-base leading-[1.55] break-words">{isActive ? service.fullDesc : service.shortDesc}</motion.p>
     </div>
     <motion.div initial={false} animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : -10, clipPath: isActive ? 'inset(0 0 0% 0)' : 'inset(0 0 100% 0)', marginTop: isActive ? 18 : 0 }} transition={{ duration: isReducedMotion ? 0.01 : 0.48, delay: isActive && !isReducedMotion ? 0.18 : 0, ease }} aria-hidden={!isActive} className="relative z-10 pointer-events-none hidden md:block">
       <ul className="space-y-2.5">{service.features.slice(0, 4).map((feature, featureIndex) => <motion.li key={feature} animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 7 }} transition={reveal(0.25 + featureIndex * 0.06)} className="flex items-start gap-2.5 text-sm font-semibold text-[#071A36]"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#1677FF]" /><span className="leading-tight">{feature}</span></motion.li>)}</ul>

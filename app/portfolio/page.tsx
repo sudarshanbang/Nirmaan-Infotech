@@ -25,7 +25,7 @@ export default function PortfolioPage() {
   ]);
 
   return (
-    <div className="pt-28 pb-20 lg:pt-36 lg:pb-28">
+    <div className="pt-28 pb-20 lg:pt-36 lg:pb-28 w-full max-w-full overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}

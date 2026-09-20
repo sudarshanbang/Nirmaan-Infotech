@@ -4,8 +4,8 @@ import { ServicesGrid } from '@/components/services/ServicesGrid';
 
 export const ServicesOverview: React.FC = () => {
   return (
-    <section className="relative py-20 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-b border-[#e2e8f0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-b border-[#e2e8f0] w-full max-w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         
         {/* SECTION HEADER */}
         <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
@@ -14,12 +14,12 @@ export const ServicesOverview: React.FC = () => {
             <span>Digital Solutions & Services</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-none font-heading">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-tight sm:leading-none font-heading break-words max-w-full">
             ENGINEERED FOR <br className="hidden sm:inline" />
             DIGITAL DOMINANCE<span className="text-[#1677FF]">.</span>
           </h2>
 
-          <p className="mt-4 text-[18px] text-[#64748b] leading-[1.61] font-normal">
+          <p className="mt-4 text-sm sm:text-base md:text-[18px] text-[#64748b] leading-[1.61] font-normal">
             Whether establishing a modern brand presence, launching a high-converting e-commerce store, or automating workflows, we build modern tech tailored for growth.
           </p>
         </ScrollReveal>

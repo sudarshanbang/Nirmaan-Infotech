@@ -255,6 +255,14 @@ const SCROLL_PER_CARD = 0.85; // fraction of container height for each card's ac
 const WorkflowCard: React.FC<WorkflowCardProps> = ({ step, index, totalCards, containerRef }) => {
   const shouldReduceMotion = useReducedMotion();
   const isOdd = index % 2 !== 0;
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const update = () => setIsMobile(window.innerWidth < 1024);
+    update();
+    window.addEventListener('resize', update, { passive: true });
+    return () => window.removeEventListener('resize', update);
+  }, []);
 
   // Scroll progress over the entire stacking container
   const { scrollYProgress } = useScroll({
@@ -289,15 +297,15 @@ const WorkflowCard: React.FC<WorkflowCardProps> = ({ step, index, totalCards, co
   return (
     <motion.div
       style={{
-        top: stickyTop,
-        zIndex: 10 + index,
-        scale,
-        opacity,
-        filter: shouldReduceMotion ? 'none' : filter,
+        top: isMobile ? undefined : stickyTop,
+        zIndex: isMobile ? 1 : 10 + index,
+        scale: isMobile || shouldReduceMotion ? 1 : scale,
+        opacity: isMobile || shouldReduceMotion ? 1 : opacity,
+        filter: isMobile || shouldReduceMotion ? 'none' : filter,
         transformOrigin: 'top center',
-        willChange: 'transform, opacity',
+        willChange: isMobile ? 'auto' : 'transform, opacity',
       }}
-      className={`sticky w-full ${shouldReduceMotion ? '' : ''}`}
+      className="relative lg:sticky w-full mb-6 sm:mb-8 lg:mb-0"
     >
       {/* Card shell — Nirmaan design tokens */}
       <div className="relative bg-white border border-[#e2e8f0] rounded-2xl shadow-[rgba(0,0,0,0.06)_0px_4px_24px_0px] overflow-hidden group hover:shadow-[rgba(0,0,0,0.1)_0px_8px_32px_0px] transition-shadow duration-300">
@@ -306,7 +314,7 @@ const WorkflowCard: React.FC<WorkflowCardProps> = ({ step, index, totalCards, co
 
         <div className={`grid grid-cols-1 lg:grid-cols-2 min-h-[340px] lg:min-h-[360px]`}>
           {/* Content column — alternates side */}
-          <div className={`flex flex-col justify-between p-7 sm:p-9 lg:p-10 ${isOdd ? 'lg:order-2' : 'lg:order-1'}`}>
+          <div className={`flex flex-col justify-between p-5 sm:p-9 lg:p-10 ${isOdd ? 'lg:order-2' : 'lg:order-1'}`}>
             {/* Top: badge + number */}
             <div>
               <div className="flex items-center gap-3 mb-6">

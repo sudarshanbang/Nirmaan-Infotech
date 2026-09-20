@@ -6,21 +6,21 @@ import { CheckCircle2 } from 'lucide-react';
 
 export const ProcessTimeline: React.FC = () => {
   return (
-    <section className="relative py-20 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-b border-[#e2e8f0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-b border-[#e2e8f0] w-full max-w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#f1f5f9] border border-[#e2e8f0] text-[#071A36] mb-4 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#1677FF] animate-pulse" />
             <span>Structured Process</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-none font-heading">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-tight sm:leading-none font-heading break-words max-w-full">
             FROM IDEA <br className="hidden sm:inline" />
             TO DIGITAL REALITY<span className="text-[#1677FF]">.</span>
           </h2>
 
-          <p className="mt-4 text-[18px] text-[#64748b] leading-[1.61] font-normal">
+          <p className="mt-4 text-sm sm:text-base md:text-[18px] text-[#64748b] leading-[1.61] font-normal">
             A transparent, 7-step engineering workflow built to keep your project on schedule, within budget, and aligned with your growth vision.
           </p>
         </ScrollReveal>
@@ -44,9 +44,9 @@ export const ProcessTimeline: React.FC = () => {
                     
                     {/* STEP CARD */}
                     <div className="w-full lg:w-[calc(50%-2.5rem)]">
-                      <GlassCard variant="default" className="p-6 sm:p-8 hover:border-[#071A36] hover:bg-[#f1f5f9]/50 transition-all bg-white border-[#e2e8f0] rounded-xl shadow-sm">
+                      <GlassCard variant="default" className="p-5 sm:p-8 hover:border-[#071A36] hover:bg-[#f1f5f9]/50 transition-all bg-white border-[#e2e8f0] rounded-xl shadow-sm">
                         <div className="flex items-center justify-between mb-4">
-                          <span className="text-3xl sm:text-4xl font-bold text-[#1677FF] font-mono tracking-tight">
+                          <span className="text-2xl sm:text-4xl font-bold text-[#1677FF] font-mono tracking-tight">
                             {step.step}
                           </span>
                           <span className="px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#f1f5f9] text-[#071A36] border border-[#e2e8f0]">
@@ -54,11 +54,11 @@ export const ProcessTimeline: React.FC = () => {
                           </span>
                         </div>
 
-                        <h3 className="text-xl font-bold text-[#071A36] mb-2 font-heading">
+                        <h3 className="text-lg sm:text-xl font-bold text-[#071A36] mb-2 font-heading">
                           {step.title}
                         </h3>
 
-                        <p className="text-[15px] text-[#64748b] leading-[1.61] mb-4 font-normal">
+                        <p className="text-sm sm:text-[15px] text-[#64748b] leading-[1.61] mb-4 font-normal">
                           {step.shortDesc}
                         </p>
 

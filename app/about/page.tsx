@@ -26,7 +26,7 @@ export default function AboutPage() {
   ]);
 
   return (
-    <div className="pt-28 pb-20 lg:pt-36 lg:pb-28 space-y-12">
+    <div className="pt-28 pb-20 lg:pt-36 lg:pb-28 space-y-12 w-full max-w-full overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}

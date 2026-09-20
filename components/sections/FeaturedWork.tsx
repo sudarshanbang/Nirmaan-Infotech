@@ -7,32 +7,32 @@ import { Monitor, Smartphone, ShoppingBag, ExternalLink, Sparkles } from 'lucide
 
 export const FeaturedWork: React.FC = () => {
   return (
-    <section className="relative py-20 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-t border-[#e2e8f0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-t border-[#e2e8f0] w-full max-w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-14">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#f1f5f9] border border-[#e2e8f0] text-[#071A36] mb-4 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#1677FF]" />
             <span>Featured Client Case Study</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-none font-heading">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-tight sm:leading-none font-heading break-words max-w-full">
             WE BUILD WEBSITES <br className="hidden sm:inline" />
             THAT DRIVE REAL GROWTH<span className="text-[#1677FF]">.</span>
           </h2>
 
-          <p className="mt-4 text-[18px] text-[#64748b] leading-[1.61] font-normal">
+          <p className="mt-4 text-sm sm:text-base md:text-[18px] text-[#64748b] leading-[1.61] font-normal">
             A real-world showcase of custom e-commerce engineering, mobile responsiveness, and high-conversion UX.
           </p>
         </ScrollReveal>
 
         {/* LARGE FEATURED WORK SHOWCASE CARD */}
-        <ScrollReveal>
-          <div className="p-7 sm:p-12 border border-[#e2e8f0] bg-white rounded-2xl shadow-lg">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <ScrollReveal className="w-full min-w-0">
+          <div className="p-4 sm:p-8 lg:p-12 border border-[#e2e8f0] bg-white rounded-2xl shadow-lg w-full max-w-full min-w-0">
+            <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center min-w-0">
               
               {/* LEFT / TOP PROJECT INFO */}
-              <div className="lg:col-span-6 space-y-6">
+              <div className="w-full min-w-0 lg:col-span-6 space-y-6">
                 
                 {/* 1. BADGE & CATEGORY */}
                 <div className="flex flex-wrap items-center gap-3">
@@ -45,12 +45,12 @@ export const FeaturedWork: React.FC = () => {
                 </div>
 
                 {/* 2. MAIN HEADING */}
-                <h3 className="text-3xl sm:text-4xl font-bold text-[#071A36] leading-tight font-heading">
+                <h3 className="text-2xl sm:text-4xl font-bold text-[#071A36] leading-tight font-heading">
                   Shri Krishna Grocery Store
                 </h3>
 
                 {/* 3. DESCRIPTION */}
-                <p className="text-[18px] text-[#64748b] leading-[1.61] font-normal">
+                <p className="text-base sm:text-[18px] text-[#64748b] leading-[1.61] font-normal">
                   A modern e-commerce experience designed to help a local grocery business showcase products, accept orders and connect with customers digitally.
                 </p>
 
@@ -97,35 +97,35 @@ export const FeaturedWork: React.FC = () => {
                 </div>
 
                 {/* 6. CTA BUTTONS */}
-                <div className="pt-2 flex flex-wrap items-center gap-3">
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                   <a
                     href="https://shri-krishna-grocery-store.vercel.app/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#071A36] hover:bg-[#0B2A5B] text-white font-bold text-sm transition-all shadow-md"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#071A36] hover:bg-[#0B2A5B] text-white font-bold text-sm transition-all shadow-md text-center"
                   >
                     <span>Visit Live Website</span>
                     <ExternalLink className="w-4 h-4" />
                   </a>
-                  <Button href="/portfolio" variant="secondary" size="md">
+                  <Button href="/portfolio" variant="secondary" size="md" className="w-full sm:w-auto text-center justify-center">
                     Explore Full Portfolio
                   </Button>
                 </div>
               </div>
 
               {/* RIGHT / BOTTOM WEBSITE PREVIEW */}
-              <div className="lg:col-span-6 relative flex items-center justify-center pt-2 lg:pt-0 w-full overflow-hidden">
+              <div className="w-full min-w-0 lg:col-span-6 relative flex items-center justify-center pt-2 lg:pt-0 overflow-hidden">
                 
                 {/* DESKTOP BROWSER FRAME */}
-                <div className="w-full rounded-2xl bg-white border border-[#e2e8f0] shadow-xl overflow-hidden max-w-full">
+                <div className="w-full rounded-2xl bg-white border border-[#e2e8f0] shadow-xl overflow-hidden max-w-full min-w-0">
                   {/* Browser Header */}
-                  <div className="bg-[#f1f5f9] px-4 py-3 border-b border-[#e2e8f0] flex items-center justify-between">
-                    <div className="flex items-center space-x-2 shrink-0">
-                      <div className="w-3 h-3 rounded-full bg-[#1677FF]" />
-                      <div className="w-3 h-3 rounded-full bg-amber-400" />
-                      <div className="w-3 h-3 rounded-full bg-emerald-500" />
+                  <div className="bg-[#f1f5f9] px-3 sm:px-4 py-2.5 sm:py-3 border-b border-[#e2e8f0] flex items-center justify-between">
+                    <div className="flex items-center space-x-1.5 sm:space-x-2 shrink-0">
+                      <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#1677FF]" />
+                      <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-400" />
+                      <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500" />
                     </div>
-                    <div className="px-3 py-1 rounded-full bg-white text-[11px] font-mono text-[#071A36] border border-[#e2e8f0] flex items-center gap-2 max-w-[220px] sm:max-w-none truncate mx-2">
+                    <div className="px-2.5 sm:px-3 py-1 rounded-full bg-white text-[10px] sm:text-[11px] font-mono text-[#071A36] border border-[#e2e8f0] flex items-center gap-1.5 sm:gap-2 min-w-0 max-w-[150px] sm:max-w-none truncate mx-1 sm:mx-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] shrink-0" />
                       <span className="truncate">https://shri-krishna-grocery-store.vercel.app</span>
                     </div>
@@ -133,7 +133,7 @@ export const FeaturedWork: React.FC = () => {
                   </div>
 
                   {/* Browser Screen Simulation Content */}
-                  <div className="p-6 sm:p-7 bg-white text-[#071A36] space-y-6">
+                  <div className="p-4 sm:p-7 bg-white text-[#071A36] space-y-4 sm:space-y-6">
                     <div className="flex items-center justify-between pb-4 border-b border-[#e2e8f0]">
                       <div className="flex items-center gap-2">
                         <ShoppingBag className="w-5 h-5 text-[#1677FF]" />

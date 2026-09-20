@@ -22,7 +22,7 @@ import {
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="relative bg-[#071A36] border-t border-white/10 pt-20 pb-24 md:pb-12 overflow-hidden z-10 text-white">
+    <footer className="relative bg-[#071A36] border-t border-white/10 pt-16 sm:pt-20 pb-32 sm:pb-32 md:pb-12 overflow-hidden z-10 text-white w-full max-w-full">
       {/* AMBIENT AURORA GLOW BLOBS (DESKTOP ONLY FOR 60FPS MOBILE PERFORMANCE) */}
       <div className="hidden md:block absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#1677FF]/15 rounded-full blur-[100px] pointer-events-none" />
       <div className="hidden md:block absolute top-10 left-[-100px] w-[400px] h-[400px] bg-[#005CE6]/10 rounded-full blur-[80px] pointer-events-none" />
@@ -30,7 +30,7 @@ export const Footer: React.FC = () => {
       {/* TOP GLOWING BORDER ACCENT LINE */}
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#1677FF] to-transparent opacity-60" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 min-w-0">
         
         {/* TOP CTA CALLOUT CARD INSIDE FOOTER WITH WHITE & TRANSPARENT FROSTED GLASS */}
         <motion.div
@@ -38,39 +38,39 @@ export const Footer: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative mb-16 p-8 sm:p-10 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-white/40 hover:bg-white/[0.14] shadow-2xl hover:shadow-[0_0_35px_rgba(255,255,255,0.15)] transition-all duration-500 overflow-hidden group"
+          className="relative mb-14 sm:mb-16 p-6 sm:p-10 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 hover:border-white/40 hover:bg-white/[0.14] shadow-2xl hover:shadow-[0_0_35px_rgba(255,255,255,0.15)] transition-all duration-500 overflow-hidden group w-full min-w-0"
         >
           {/* Subtle white overlay sweep */}
           <div className="absolute inset-0 bg-gradient-to-r from-white/10 via-transparent to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10">
-            <div>
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 relative z-10 w-full min-w-0">
+            <div className="min-w-0 w-full lg:w-auto">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-mono font-bold uppercase tracking-wider mb-3 group-hover:scale-105 transition-transform">
-                <Sparkles className="w-3.5 h-3.5 text-[#1677FF] animate-pulse" />
-                <span>Start Your Digital Journey</span>
+                <Sparkles className="w-3.5 h-3.5 text-[#1677FF] animate-pulse shrink-0" />
+                <span className="truncate">Start Your Digital Journey</span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-heading tracking-tight group-hover:text-white transition-colors">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white font-heading tracking-tight group-hover:text-white transition-colors break-words max-w-full">
                 Ready to build something extraordinary?
               </h3>
-              <p className="text-slate-200 text-sm sm:text-base mt-1 font-normal max-w-xl">
+              <p className="text-slate-200 text-sm sm:text-base mt-1 font-normal max-w-xl break-words">
                 Let&apos;s engineer a high-performance website or digital product that drives real business growth.
               </p>
             </div>
 
-            <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }}>
+            <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto shrink-0">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full bg-[#1677FF] text-white font-bold text-sm hover:bg-white hover:text-[#1677FF] transition-all shadow-lg shadow-[#1677FF]/30 hover:shadow-[0_0_30px_rgba(22,119,255,0.4)] shrink-0 group/btn"
+                className="inline-flex items-center justify-center gap-2.5 w-full sm:w-auto px-7 py-4 rounded-full bg-[#1677FF] text-white font-bold text-sm hover:bg-white hover:text-[#1677FF] transition-all shadow-lg shadow-[#1677FF]/30 hover:shadow-[0_0_30px_rgba(22,119,255,0.4)] shrink-0 group/btn min-h-[44px]"
               >
                 <span>Book Free Consultation</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1.5" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1.5 shrink-0" />
               </Link>
             </motion.div>
           </div>
         </motion.div>
 
         {/* 5-COLUMN MAIN FOOTER GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 pb-16 border-b border-white/10">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 pb-16 border-b border-white/10 min-w-0">
           
           {/* COLUMN 1 & 2: BRAND & STORY */}
           <motion.div
@@ -78,7 +78,7 @@ export const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-2 space-y-6"
+            className="lg:col-span-2 space-y-6 min-w-0"
           >
             <Link href="/" className="inline-block focus:outline-none group">
               <div className="relative h-11 w-52 sm:h-12 sm:w-60 transition-transform duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_20px_rgba(22,119,255,0.4)]">
@@ -91,13 +91,13 @@ export const Footer: React.FC = () => {
               </div>
             </Link>
 
-            <p className="text-slate-300 text-base leading-relaxed max-w-md font-normal">
+            <p className="text-slate-300 text-base leading-relaxed max-w-md font-normal break-words">
               {siteConfig.description}
             </p>
 
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/15 hover:border-[#10B981] hover:bg-[#10B981]/10 text-white text-xs font-mono font-medium shadow-inner transition-all duration-300 cursor-pointer group/tag">
-              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse group-hover/tag:scale-125 transition-transform" />
-              <span>{siteConfig.tagline}</span>
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/5 border border-white/15 hover:border-[#10B981] hover:bg-[#10B981]/10 text-white text-xs font-mono font-medium shadow-inner transition-all duration-300 cursor-pointer group/tag max-w-full">
+              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse group-hover/tag:scale-125 transition-transform shrink-0" />
+              <span className="truncate">{siteConfig.tagline}</span>
             </div>
 
             {/* ANIMATED SOCIAL BUTTONS WITH GLOW HOVER */}
@@ -129,7 +129,7 @@ export const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="space-y-4"
+            className="space-y-4 min-w-0"
           >
             <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-[#1677FF]">
               Company
@@ -161,7 +161,7 @@ export const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="space-y-4"
+            className="space-y-4 min-w-0"
           >
             <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-[#1677FF]">
               Digital Solutions
@@ -187,7 +187,7 @@ export const Footer: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="space-y-4"
+            className="space-y-4 min-w-0"
           >
             <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-[#1677FF]">
               Direct Contact
@@ -238,16 +238,16 @@ export const Footer: React.FC = () => {
                 <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-white/40 shrink-0 mt-0.5">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span className="self-center">{siteConfig.contact.address}</span>
+                <span className="self-center break-words">{siteConfig.contact.address}</span>
               </li>
             </ul>
           </motion.div>
         </div>
 
         {/* BOTTOM COPYRIGHT & LEGAL BAR WITH HOVER HIGHLIGHTS */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-mono gap-4">
-          <p>© {new Date().getFullYear()} Nirmaan Infotech. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-mono gap-4 text-center sm:text-left min-w-0 w-full">
+          <p className="break-words">© {new Date().getFullYear()} Nirmaan Infotech. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6 min-w-0">
             <Link href="/privacy" className="hover:text-[#1677FF] hover:underline underline-offset-4 transition-colors">
               Privacy Policy
             </Link>

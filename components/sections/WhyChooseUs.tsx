@@ -68,33 +68,33 @@ export const WhyChooseUs: React.FC = () => {
   };
 
   return (
-    <section className="relative py-20 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-b border-[#e2e8f0]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 lg:py-32 bg-white text-[#071A36] z-10 overflow-hidden border-b border-[#e2e8f0] w-full max-w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-[#f1f5f9] border border-[#e2e8f0] text-[#071A36] mb-4 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#1677FF] animate-pulse" />
             <span>The Nirmaan Advantage</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-none font-heading">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#071A36] tracking-[-0.035em] leading-tight sm:leading-none font-heading break-words max-w-full">
             WHY BUSINESSES CHOOSE <br className="hidden sm:inline" />
             NIRMAAN INFOTECH<span className="text-[#1677FF]">.</span>
           </h2>
 
-          <p className="mt-4 text-[18px] text-[#64748b] leading-[1.61] font-normal">
+          <p className="mt-4 text-sm sm:text-base md:text-[18px] text-[#64748b] leading-[1.61] font-normal">
             We bridge the gap between creative design, modern web engineering, and real business results.
           </p>
         </ScrollReveal>
 
         {/* 4 FEATURE BLOCKS WITH 3D PERSPECTIVE TILT & PULSE */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 min-w-0">
           {whyNirmaanFeatures.map((feature, index) => {
             const config = getAccentConfig(index);
             const isPulsing = pulsingIndex === index;
 
             return (
-              <ScrollReveal key={feature.title} delay={index * 0.1} className="h-full">
+              <ScrollReveal key={feature.title} delay={index * 0.1} className="h-full w-full min-w-0">
                 {/* 3D PERSPECTIVE CONTAINER */}
                 <div
                   className="btn-3d group h-full relative cursor-pointer [perspective:1000px]"

@@ -22,33 +22,33 @@ export const ProblemSection: React.FC = () => {
   };
 
   return (
-    <section className="relative py-20 sm:py-28 bg-white text-black z-10 overflow-hidden border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-16 sm:py-24 md:py-28 bg-white text-black z-10 overflow-hidden border-b border-slate-200 w-full max-w-full">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider bg-black text-white border border-black mb-4 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
             <span>Digital Challenges</span>
           </div>
 
-          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-black tracking-[-0.035em] leading-none font-heading">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-black tracking-[-0.035em] leading-tight sm:leading-none font-heading break-words max-w-full">
             IS YOUR DIGITAL PRESENCE <br className="hidden sm:inline" />
             HOLDING YOU BACK<span className="text-black">?</span>
           </h2>
 
-          <p className="mt-4 text-[18px] text-slate-600 leading-[1.61] font-normal">
+          <p className="mt-4 text-sm sm:text-base md:text-[18px] text-slate-600 leading-[1.61] font-normal">
             A weak website costs your business credibility, inquiries, and customer trust every single day. Here is how we engineer the solution.
           </p>
         </ScrollReveal>
 
         {/* 4 PROBLEM VS SOLUTION CARDS WITH THEME HOVER ANIMATION */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 min-w-0">
           {problemCards.map((card, index) => (
-            <ScrollReveal key={card.id} delay={index * 0.1} className="h-full">
+            <ScrollReveal key={card.id} delay={index * 0.1} className="h-full w-full min-w-0">
               <motion.div
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
-                className="holographic-card group relative h-full p-5 sm:p-8 rounded-2xl bg-white border-2 border-slate-200 hover:border-[#1677FF] shadow-sm hover:shadow-[0_0_25px_rgba(22,119,255,0.35),0_0_50px_rgba(22,119,255,0.18)] transition-all duration-500 flex flex-col justify-between overflow-hidden cursor-pointer"
+                className="holographic-card group relative h-full p-5 sm:p-8 rounded-2xl bg-white border-2 border-slate-200 hover:border-[#1677FF] shadow-sm hover:shadow-[0_0_25px_rgba(22,119,255,0.35),0_0_50px_rgba(22,119,255,0.18)] transition-all duration-500 flex flex-col justify-between overflow-hidden cursor-pointer w-full max-w-full min-w-0"
               >
                 {/* BRAND LIGHT SWEEP OVERLAY */}
                 <div className="absolute -top-[150%] -left-[50%] w-[200%] h-[200%] bg-[linear-gradient(135deg,transparent_0%,rgba(22,119,255,0.15)_40%,rgba(22,119,255,0.3)_50%,rgba(22,119,255,0.15)_60%,transparent_100%)] rotate-12 opacity-0 group-hover:opacity-100 group-hover:translate-y-[130%] transition-all duration-700 ease-in-out pointer-events-none z-20" />

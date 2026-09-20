@@ -51,8 +51,9 @@ export const ServicesGrid: React.FC = () => {
     <div className="mb-8 hidden items-center justify-center gap-2 lg:flex" aria-label="Choose a service">
       {servicesData.map((service, index) => <button key={service.id} type="button" onClick={() => activate(index, true)} onMouseEnter={() => activate(index, true)} aria-label={`Go to ${service.title}`} aria-current={activeIndex === index ? 'true' : undefined} className={`h-1.5 rounded-full transition-all duration-500 ${activeIndex === index ? 'w-8 bg-[#1677FF]' : 'w-2 bg-[#e2e8f0] hover:bg-[#071A36]'}`} />)}
     </div>
-    <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+    <div className="w-full grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 min-w-0">
       {servicesData.map((service, index) => <motion.div key={service.id}
+        className="w-full min-w-0"
         initial={isReducedMotion ? false : { opacity: 0, y: 26, scale: 0.985 }}
         animate={isInView || isReducedMotion ? { opacity: activeIndex === index ? 1 : 0.96, y: 0, scale: 1 } : { opacity: 0, y: 26, scale: 0.985 }}
         transition={{ duration: isReducedMotion ? 0.01 : 0.65, delay: isInView && !isReducedMotion ? index * 0.09 : 0, ease }}

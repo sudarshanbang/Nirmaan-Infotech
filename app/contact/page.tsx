@@ -48,37 +48,37 @@ export default function ContactPage() {
         <div className="absolute top-20 left-10 w-[500px] h-[400px] rounded-full bg-[#00BFA6]/10 blur-[120px]" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 min-w-0">
         
         {/* CENTERED HEADER (MATCHING REFERENCE IMAGE "Get In Touch") */}
-        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#071A36] tracking-tight font-heading">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 min-w-0">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-[#071A36] tracking-tight font-heading break-words max-w-full">
             Get In Touch
           </h1>
 
-          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto">
+          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed font-normal max-w-2xl mx-auto break-words">
             We&apos;ll create high-performance web platforms, e-commerce storefronts, and custom digital systems to accelerate your brand&apos;s growth.
           </p>
         </ScrollReveal>
 
         {/* UNIFIED CONTACT FORM CARD (LEFT INFO PANEL + RIGHT FORM) */}
-        <div className="mb-16 sm:mb-24">
+        <div className="mb-16 sm:mb-24 w-full min-w-0">
           <ContactForm />
         </div>
 
         {/* SUPPORTING LIFECYCLE & TRUST CARDS */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-16 w-full min-w-0">
           
           {/* IDEA -> BUILD -> GROW LIFECYCLE */}
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-7 min-w-0 w-full">
             <GlassCard variant="default" className="h-full bg-white border border-slate-200 shadow-md rounded-2xl p-6 sm:p-8 space-y-4 text-[#071A36]">
               <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#00BFA6]">
-                <Sparkles className="w-4 h-4" />
-                <span>Our Engineering Lifecycle</span>
+                <Sparkles className="w-4 h-4 shrink-0" />
+                <span className="truncate">Our Engineering Lifecycle</span>
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2 text-center">
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2 min-w-0">
                   <div className="w-8 h-8 rounded-lg bg-[#00BFA6]/15 text-[#00BFA6] border border-[#00BFA6]/30 flex items-center justify-center mx-auto">
                     <Zap className="w-4 h-4" />
                   </div>
@@ -86,7 +86,7 @@ export default function ContactPage() {
                   <div className="text-[11px] text-slate-500 font-medium leading-tight">Discovery & Strategy</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2 min-w-0">
                   <div className="w-8 h-8 rounded-lg bg-[#00BFA6]/15 text-[#00BFA6] border border-[#00BFA6]/30 flex items-center justify-center mx-auto">
                     <Code2 className="w-4 h-4" />
                   </div>
@@ -94,7 +94,7 @@ export default function ContactPage() {
                   <div className="text-[11px] text-slate-500 font-medium leading-tight">Clean Next.js Code</div>
                 </div>
 
-                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2">
+                <div className="p-4 rounded-xl bg-slate-50 border border-slate-100 space-y-2 min-w-0">
                   <div className="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-600 border border-emerald-500/30 flex items-center justify-center mx-auto">
                     <Rocket className="w-4 h-4" />
                   </div>
@@ -106,23 +106,23 @@ export default function ContactPage() {
           </div>
 
           {/* TRUST & NDA BADGE */}
-          <div className="lg:col-span-5 flex">
-            <div className="w-full p-6 sm:p-8 rounded-2xl bg-[#071A36] text-white border border-white/15 flex flex-col justify-between shadow-xl">
+          <div className="lg:col-span-5 flex min-w-0 w-full">
+            <div className="w-full p-6 sm:p-8 rounded-2xl bg-[#071A36] text-white border border-white/15 flex flex-col justify-between shadow-xl min-w-0">
               <div className="space-y-3">
                 <div className="w-10 h-10 rounded-xl bg-[#00BFA6]/20 text-[#00BFA6] border border-[#00BFA6]/30 flex items-center justify-center">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
-                <h4 className="text-lg font-bold text-white font-heading">
+                <h4 className="text-lg font-bold text-white font-heading break-words">
                   Transparent, Reliable & NDA Protected
                 </h4>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal break-words">
                   Every inquiry receives dedicated engineering attention with fixed milestone scoping, zero hidden charges, and complete data confidentiality.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-white/10 text-xs font-mono text-[#00BFA6] flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#00BFA6] animate-pulse" />
-                <span>NDA & Client Privacy Guaranteed</span>
+                <span className="w-2 h-2 rounded-full bg-[#00BFA6] animate-pulse shrink-0" />
+                <span className="truncate">NDA & Client Privacy Guaranteed</span>
               </div>
             </div>
           </div>
@@ -131,7 +131,7 @@ export default function ContactPage() {
 
         {/* BOTTOM IMMEDIATE ASSISTANCE CARD */}
         <ScrollReveal>
-          <GlassCard variant="default" className="bg-[#071A36] border border-white/20 rounded-3xl shadow-2xl text-center relative overflow-hidden text-white p-8 sm:p-12">
+          <GlassCard variant="default" className="bg-[#071A36] border border-white/20 rounded-3xl shadow-2xl text-center relative overflow-hidden text-white p-6 sm:p-12 w-full min-w-0">
             <div className="absolute top-0 right-0 w-80 h-80 bg-[#00BFA6]/10 rounded-full blur-3xl pointer-events-none" />
             <div className="relative z-10 max-w-2xl mx-auto space-y-5">
               <span className="inline-block px-3.5 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest bg-[#00BFA6]/20 border border-[#00BFA6]/40 text-[#00BFA6]">

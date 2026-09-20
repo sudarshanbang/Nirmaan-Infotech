@@ -29,7 +29,7 @@ export const FloatingWhatsApp: React.FC = () => {
       </motion.a>
 
       {/* MOBILE STICKY BOTTOM ACTION BAR */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#071A36] border-t border-white/15 p-2.5 px-4 flex items-center gap-3 shadow-2xl">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-[#071A36] border-t border-white/15 p-2.5 px-4 pb-[calc(0.625rem+env(safe-area-inset-bottom,0px))] flex items-center gap-3 shadow-2xl">
         <a
           href={siteConfig.contact.whatsappUrl}
           target="_blank"
