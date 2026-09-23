@@ -12,13 +12,13 @@ import {
   ShieldCheck,
   Sparkles,
   Zap,
-  Star,
   Activity,
   Terminal,
   Check,
   Code2,
   ArrowRight,
 } from 'lucide-react';
+
 
 export const Hero: React.FC = () => {
   return (
@@ -93,7 +93,7 @@ export const Hero: React.FC = () => {
               </Link>
             </motion.div>
 
-            {/* MONO STATS STRIP WITH HAIRLINE DIVIDER */}
+            {/* CAPABILITY STATEMENTS STRIP — factual, no fabricated numbers */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -101,23 +101,16 @@ export const Hero: React.FC = () => {
               className="pt-6 border-t border-[#e2e8f0] w-full grid grid-cols-3 gap-2 sm:gap-4 min-w-0"
             >
               <div className="min-w-0">
-                <p className="text-xl sm:text-3xl font-bold text-[#071A36] font-mono tracking-tight truncate">150+</p>
-                <p className="text-[10px] sm:text-xs text-[#64748b] font-normal mt-0.5 leading-tight truncate">Projects Delivered</p>
+                <p className="text-sm sm:text-base font-bold text-[#071A36] font-mono tracking-tight truncate">Pune-Based</p>
+                <p className="text-[10px] sm:text-xs text-[#64748b] font-normal mt-0.5 leading-tight truncate">Local Team, Real Support</p>
               </div>
               <div className="min-w-0">
-                <p className="text-xl sm:text-3xl font-bold text-[#071A36] font-mono tracking-tight truncate">99.8%</p>
-                <p className="text-[10px] sm:text-xs text-[#64748b] font-normal mt-0.5 leading-tight truncate">Satisfaction</p>
+                <p className="text-sm sm:text-base font-bold text-[#071A36] font-mono tracking-tight truncate">Mobile-First</p>
+                <p className="text-[10px] sm:text-xs text-[#64748b] font-normal mt-0.5 leading-tight truncate">Every Screen, Every Device</p>
               </div>
               <div className="min-w-0">
-                <div className="flex items-center gap-1 sm:gap-1.5">
-                  <span className="text-xl sm:text-3xl font-bold text-[#071A36] font-mono tracking-tight">5.0</span>
-                  <div className="flex text-amber-500 shrink-0">
-                    <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-500" />
-                    <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-500" />
-                    <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-500" />
-                  </div>
-                </div>
-                <p className="text-[10px] sm:text-xs text-[#64748b] font-normal mt-0.5 leading-tight truncate">Verified Rating</p>
+                <p className="text-sm sm:text-base font-bold text-[#071A36] font-mono tracking-tight truncate">Business-Focused</p>
+                <p className="text-[10px] sm:text-xs text-[#64748b] font-normal mt-0.5 leading-tight truncate">Built for Real Growth</p>
               </div>
             </motion.div>
 
@@ -170,8 +163,8 @@ export const Hero: React.FC = () => {
                   <span className="text-[#f5f28e]">&apos;100/100 Core Web Vitals&apos;</span>,
                 </div>
                 <div className="pl-3 sm:pl-4 truncate">
-                  <span className="text-slate-400">conversion:</span>{' '}
-                  <span className="text-[#10B981]">&apos;+240% Lead Generation&apos;</span>,
+                  <span className="text-slate-400">approach:</span>{' '}
+                  <span className="text-[#10B981]">&apos;Business-Focused Engineering&apos;</span>,
                 </div>
                 <div className="pl-3 sm:pl-4 truncate">
                   <span className="text-slate-400">security:</span>{' '}

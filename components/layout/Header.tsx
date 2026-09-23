@@ -19,6 +19,8 @@ import {
   TrendingUp,
   ShieldCheck,
   Cpu,
+  Database,
+  Code2,
   ArrowRight,
 } from 'lucide-react';
 
@@ -29,6 +31,8 @@ const iconMap: Record<string, React.ReactNode> = {
   TrendingUp: <TrendingUp className="w-3.5 h-3.5 text-[#1677FF]" />,
   ShieldCheck: <ShieldCheck className="w-3.5 h-3.5 text-[#1677FF]" />,
   Cpu: <Cpu className="w-3.5 h-3.5 text-[#1677FF]" />,
+  Database: <Database className="w-3.5 h-3.5 text-[#1677FF]" />,
+  Code2: <Code2 className="w-3.5 h-3.5 text-[#1677FF]" />,
 };
 
 export const Header: React.FC = () => {

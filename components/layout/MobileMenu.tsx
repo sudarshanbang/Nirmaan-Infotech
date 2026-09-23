@@ -19,6 +19,8 @@ import {
   TrendingUp,
   ShieldCheck,
   Cpu,
+  Database,
+  Code2,
   CheckCircle2,
 } from 'lucide-react';
 
@@ -35,6 +37,8 @@ const serviceIconMap: Record<string, React.ReactNode> = {
   TrendingUp: <TrendingUp className="w-4 h-4 text-[#1677FF]" />,
   ShieldCheck: <ShieldCheck className="w-4 h-4 text-[#1677FF]" />,
   Cpu: <Cpu className="w-4 h-4 text-[#1677FF]" />,
+  Database: <Database className="w-4 h-4 text-[#1677FF]" />,
+  Code2: <Code2 className="w-4 h-4 text-[#1677FF]" />,
 };
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, navLinks }) => {

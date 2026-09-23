@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import { createMetadata } from '@/lib/seo';
+import { createMetadata, getLocalBusinessSchema, getFAQSchema } from '@/lib/seo';
+import { faqsData } from '@/lib/data';
 import { Hero } from '@/components/sections/Hero';
 import { TrustSection } from '@/components/sections/TrustSection';
 import { ProblemSection } from '@/components/sections/ProblemSection';
@@ -15,23 +16,40 @@ import { TrustBuildingSection } from '@/components/sections/TrustBuildingSection
 import { CTASection } from '@/components/sections/CTASection';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Website Development Company in India | Nirmaan Infotech',
+  title: 'Web Development Company in Pune | Nirmaan Infotech',
   description:
-    'Nirmaan Infotech builds high-performance business websites, e-commerce platforms, and digital solutions engineered for speed, search visibility, and conversion.',
+    'Nirmaan Infotech is a web development company in Pune. We build business websites, e-commerce stores, ERP software, and custom digital solutions for growing businesses across Maharashtra and India.',
   path: '/',
   keywords: [
-    'Website Development Company India',
-    'Custom Website Development Pune',
-    'E-commerce Website Development',
-    'Website Redesign Company',
-    'Technical SEO Services',
+    'Web Development Company Pune',
+    'Website Development Company Pune',
+    'Web Design Company Pune',
+    'Business Website Development Pune',
+    'ERP Development Company Pune',
+    'Custom Software Development Pune',
+    'Software Development Company Pune',
+    'Digital Solutions Company Pune',
+    'IT Company Pune',
+    'Website Development Company Maharashtra',
+    'Web Development Company India',
     'Nirmaan Infotech',
   ],
 });
 
 export default function HomePage() {
+  const localBusinessSchema = getLocalBusinessSchema();
+  const faqSchema = getFAQSchema(faqsData);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <Hero />
       <TrustSection />
       <ProblemSection />
@@ -48,4 +66,3 @@ export default function HomePage() {
     </>
   );
 }
-

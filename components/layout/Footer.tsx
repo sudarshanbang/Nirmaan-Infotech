@@ -138,8 +138,8 @@ export const Footer: React.FC = () => {
               {[
                 { label: 'Home', href: '/' },
                 { label: 'About Us', href: '/about' },
+                { label: 'Services & Pricing', href: '/services' },
                 { label: 'Portfolio Showcase', href: '/portfolio' },
-                { label: 'Pricing Tiers', href: '/pricing' },
                 { label: 'Get in Touch', href: '/contact' },
               ].map((item) => (
                 <li key={item.label}>

@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, useReducedMotion, MotionValue } from 'framer-motion';
-import { Globe, ShoppingBag, Sparkles, TrendingUp, ShieldCheck, Cpu, ChevronRight } from 'lucide-react';
+import { Globe, ShoppingBag, Sparkles, TrendingUp, ShieldCheck, Cpu, Database, Code2, ChevronRight } from 'lucide-react';
 import type { ServiceItem } from '@/lib/data';
 import Link from 'next/link';
 
@@ -13,6 +13,8 @@ const iconMap: Record<string, React.ReactNode> = {
   TrendingUp: <TrendingUp className="w-16 h-16 sm:w-20 sm:h-20 text-[#1677FF]" />,
   ShieldCheck: <ShieldCheck className="w-16 h-16 sm:w-20 sm:h-20 text-[#1677FF]" />,
   Cpu: <Cpu className="w-16 h-16 sm:w-20 sm:h-20 text-[#1677FF]" />,
+  Database: <Database className="w-16 h-16 sm:w-20 sm:h-20 text-[#1677FF]" />,
+  Code2: <Code2 className="w-16 h-16 sm:w-20 sm:h-20 text-[#1677FF]" />,
 };
 
 interface ServicesStackProps {

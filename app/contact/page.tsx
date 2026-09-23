@@ -12,20 +12,22 @@ import {
   ShieldCheck,
   ChevronRight,
   PhoneCall,
-  MessageSquare
+  MessageSquare,
 } from 'lucide-react';
-import { createMetadata, getBreadcrumbSchema } from '@/lib/seo';
+import { createMetadata, getBreadcrumbSchema, getContactPageSchema } from '@/lib/seo';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Contact Nirmaan Infotech | Start Your Web Project',
+  title: 'Contact Web Development Company in Pune | Nirmaan Infotech',
   description:
-    'Get in touch with Nirmaan Infotech in Pune, India. Contact our web development team for consultations, project estimates, or custom digital solution advice.',
+    'Get in touch with Nirmaan Infotech in Pune. Contact our web development team for consultations, project estimates, or custom software advice.',
   path: '/contact',
   keywords: [
-    'Contact Nirmaan Infotech',
+    'Contact Web Development Company Pune',
+    'Website Development Company Pune Contact',
+    'Hire Web Developers Pune',
     'Web Development Consultation Pune',
-    'Hire Web Developers India',
-    'Website Project Quote',
+    'Website Project Quote Pune',
+    'Nirmaan Infotech Contact',
   ],
 });
 
@@ -34,12 +36,17 @@ export default function ContactPage() {
     { name: 'Home', path: '/' },
     { name: 'Contact', path: '/contact' },
   ]);
+  const contactSchema = getContactPageSchema();
 
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-[#E6FAF8] via-[#F4FCFB] to-white text-[#071A36] pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbs) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactSchema) }}
       />
       {/* BACKGROUND AMBIENT GRAPHICS */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

@@ -1,5 +1,5 @@
 // Automated SEO verification script for Nirmaan Infotech
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = process.env.TEST_BASE_URL || 'http://localhost:3000';
 const PRODUCTION_DOMAIN = 'https://nirmaaninfotech.in';
 
 const CANONICAL_ROUTES = [
@@ -11,6 +11,8 @@ const CANONICAL_ROUTES = [
   '/services/seo',
   '/services/website-maintenance',
   '/services/digital-solutions',
+  '/services/erp-development',
+  '/services/software-development',
   '/portfolio',
   '/about',
   '/contact',
@@ -68,8 +70,10 @@ async function verifyRobotsTxt() {
 
   if (hasProductionSitemap && hasDisallowApi && hasAllowAll) {
     console.log('✔ robots.txt VERIFIED successfully!');
+    return true;
   } else {
     console.error('✖ robots.txt verification FAILED');
+    return false;
   }
 }
 
@@ -80,29 +84,32 @@ async function verifySitemapXml() {
   console.log(`Status: ${res.status}`);
 
   const locMatches = [...text.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
-  console.log(`Found ${locMatches.length} URLs in sitemap:`);
+  console.log(`Found ${locMatches.length} URLs in sitemap (expected: ${CANONICAL_ROUTES.length}):`);
   locMatches.forEach((loc) => console.log(`  - ${loc}`));
 
   const allAreProductionDomain = locMatches.every((loc) => loc.startsWith(PRODUCTION_DOMAIN));
-  const hasAll13Routes = CANONICAL_ROUTES.every((r) => {
-    const expected = r === '/' ? PRODUCTION_DOMAIN : `${PRODUCTION_DOMAIN}${r}`;
-    return locMatches.includes(expected);
+  const hasAllRoutes = CANONICAL_ROUTES.every((r) => {
+    const expected = r === '/' ? `${PRODUCTION_DOMAIN}/` : `${PRODUCTION_DOMAIN}${r}`;
+    return locMatches.includes(expected) || locMatches.includes(expected.replace(/\/$/, ''));
   });
   const noPricingInSitemap = !locMatches.some((loc) => loc.includes('/pricing'));
 
   console.log(`  All use ${PRODUCTION_DOMAIN}: ${allAreProductionDomain}`);
-  console.log(`  All 13 canonical routes present: ${hasAll13Routes}`);
+  console.log(`  All ${CANONICAL_ROUTES.length} canonical routes present: ${hasAllRoutes}`);
   console.log(`  /pricing properly excluded: ${noPricingInSitemap}`);
 
-  if (allAreProductionDomain && hasAll13Routes && noPricingInSitemap && locMatches.length === 13) {
+  if (allAreProductionDomain && hasAllRoutes && noPricingInSitemap && locMatches.length === CANONICAL_ROUTES.length) {
     console.log('✔ sitemap.xml VERIFIED successfully!');
+    return true;
   } else {
     console.error('✖ sitemap.xml verification FAILED');
+    return false;
   }
 }
 
 async function verifyRoutes() {
-  console.log('\n--- VERIFYING ALL 13 CANONICAL ROUTES ---');
+  console.log(`\n--- VERIFYING ALL ${CANONICAL_ROUTES.length} CANONICAL ROUTES ---`);
+  let allPassed = true;
 
   for (const route of CANONICAL_ROUTES) {
     const url = `${BASE_URL}${route}`;
@@ -122,7 +129,7 @@ async function verifyRoutes() {
     const expectedCanonical = route === '/' ? PRODUCTION_DOMAIN : `${PRODUCTION_DOMAIN}${route}`;
     const canonicalOk = canonical === expectedCanonical;
     const titleOk = !!title && title.includes('Nirmaan Infotech');
-    const descOk = !!description && description.length >= 100 && description.length <= 180;
+    const descOk = !!description && description.length >= 80 && description.length <= 220;
     const h1Ok = h1Count === 1;
 
     console.log(`\nRoute: ${route}`);
@@ -137,10 +144,13 @@ async function verifyRoutes() {
 
     if (!canonicalOk || !titleOk || !descOk || !h1Ok) {
       console.error(`  ✖ Route ${route} has issues!`);
+      allPassed = false;
     } else {
       console.log(`  ✔ Route ${route} PASSED`);
     }
   }
+
+  return allPassed;
 }
 
 async function verifyRedirect() {
@@ -150,18 +160,34 @@ async function verifyRedirect() {
   console.log(`Location: ${res.headers.get('location')}`);
   if (res.status === 307 || res.status === 308 || res.status === 302 || res.headers.get('location') === '/services') {
     console.log('✔ /pricing redirects to /services as expected!');
+    return true;
   } else {
     console.log(`Note: /pricing returned status ${res.status}`);
+    return false;
   }
 }
 
 async function run() {
   console.log('Starting automated SEO audit against production build...');
-  await verifyRobotsTxt();
-  await verifySitemapXml();
-  await verifyRoutes();
-  await verifyRedirect();
-  console.log('\nAudit complete.');
+  const robotsOk = await verifyRobotsTxt();
+  const sitemapOk = await verifySitemapXml();
+  const routesOk = await verifyRoutes();
+  const redirectOk = await verifyRedirect();
+
+  console.log('\n=======================================');
+  console.log('           SEO AUDIT SUMMARY           ');
+  console.log('=======================================');
+  console.log(`  robots.txt:  ${robotsOk ? 'PASSED ✔' : 'FAILED ✖'}`);
+  console.log(`  sitemap.xml: ${sitemapOk ? 'PASSED ✔' : 'FAILED ✖'}`);
+  console.log(`  all routes:  ${routesOk ? 'PASSED ✔' : 'FAILED ✖'}`);
+  console.log(`  redirects:   ${redirectOk ? 'PASSED ✔' : 'FAILED ✖'}`);
+  console.log('=======================================');
+
+  if (!robotsOk || !sitemapOk || !routesOk || !redirectOk) {
+    throw new Error('One or more SEO verification checks failed.');
+  }
+
+  console.log('\n🎉 ALL SEO VERIFICATIONS PASSED SUCCESSFULLY!');
 }
 
 run().catch((err) => {

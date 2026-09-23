@@ -47,7 +47,7 @@ export function createMetadata({
           url: DEFAULT_OG_IMAGE,
           width: 1200,
           height: 630,
-          alt: `${SITE_NAME} - ${title}`,
+          alt: `${SITE_NAME} — ${title}`,
         },
       ],
     },
@@ -82,8 +82,9 @@ export function createMetadata({
 }
 
 /**
- * Organization Schema for Nirmaan Infotech
+ * Organization Schema for Nirmaan Infotech.
  * Truthful, verified business signals only.
+ * Postal code excluded — not independently verified.
  */
 export function getOrganizationSchema() {
   return {
@@ -100,14 +101,14 @@ export function getOrganizationSchema() {
       streetAddress: 'Anandnagar',
       addressLocality: 'Pune',
       addressRegion: 'Maharashtra',
-      postalCode: '411051',
       addressCountry: 'IN',
     },
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: siteConfig.contact.phone,
+      email: siteConfig.contact.email,
       contactType: 'customer service',
-      areaServed: 'IN',
+      areaServed: ['IN'],
       availableLanguage: ['English', 'Hindi', 'Marathi'],
     },
     sameAs: [
@@ -120,7 +121,69 @@ export function getOrganizationSchema() {
 }
 
 /**
- * WebSite Schema for Nirmaan Infotech
+ * LocalBusiness / ProfessionalService Schema for Nirmaan Infotech.
+ * Used on the homepage to strengthen local Pune SEO signals.
+ * Only includes verified, factual information.
+ * No postal code, opening hours, price range, or ratings are included
+ * unless independently verified.
+ */
+export function getLocalBusinessSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    '@id': `${SITE_URL}/#localbusiness`,
+    name: SITE_NAME,
+    url: `${SITE_URL}/`,
+    telephone: siteConfig.contact.phone,
+    email: siteConfig.contact.email,
+    description: siteConfig.description,
+    logo: DEFAULT_OG_IMAGE,
+    image: DEFAULT_OG_IMAGE,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Anandnagar',
+      addressLocality: 'Pune',
+      addressRegion: 'Maharashtra',
+      addressCountry: 'IN',
+    },
+    serviceArea: [
+      {
+        '@type': 'City',
+        name: 'Pune',
+      },
+      {
+        '@type': 'State',
+        name: 'Maharashtra',
+      },
+      {
+        '@type': 'Country',
+        name: 'India',
+      },
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Web Development & Digital Services',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Website Development' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'E-commerce Development' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'ERP Software Development' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Custom Software Development' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Website Redesign' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'SEO Services' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Website Maintenance' } },
+      ],
+    },
+    sameAs: [
+      siteConfig.social.linkedin,
+      siteConfig.social.instagram,
+      siteConfig.social.facebook,
+      siteConfig.social.twitter,
+    ].filter(Boolean),
+  };
+}
+
+/**
+ * WebSite Schema for Nirmaan Infotech.
  * Does NOT include fabricated SearchAction since there is no internal search feature.
  */
 export function getWebSiteSchema() {
@@ -168,6 +231,7 @@ export interface ServiceSchemaProps {
 
 /**
  * Generates Service Schema for specific service offerings.
+ * Represents visible page content only — no fabricated ratings or pricing.
  */
 export function getServiceSchema({
   name,
@@ -186,10 +250,54 @@ export function getServiceSchema({
     provider: {
       '@id': `${SITE_URL}/#organization`,
     },
-    areaServed: {
-      '@type': 'Country',
-      name: 'India',
-    },
+    areaServed: [
+      { '@type': 'City', name: 'Pune' },
+      { '@type': 'State', name: 'Maharashtra' },
+      { '@type': 'Country', name: 'India' },
+    ],
     serviceType,
   };
 }
+
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+/**
+ * Generates FAQPage Schema.
+ * Only use when the FAQ content is genuinely visible on the page.
+ * Content must accurately reflect what is shown to the user.
+ */
+export function getFAQSchema(faqs: FAQItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+/**
+ * Generates ContactPage Schema.
+ */
+export function getContactPageSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': `${SITE_URL}/contact#webpage`,
+    url: `${SITE_URL}/contact`,
+    name: `Contact ${SITE_NAME}`,
+    description: `Contact ${SITE_NAME} for web development, ERP, and software solutions in Pune, Maharashtra.`,
+    mainEntity: {
+      '@id': `${SITE_URL}/#organization`,
+    },
+  };
+}
+

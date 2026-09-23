@@ -256,6 +256,64 @@ export const servicesData: ServiceItem[] = [
     ],
     techStack: ["React / Next.js", "TypeScript", "Node.js API", "Tailwind CSS"],
   },
+  {
+    id: "erp-development",
+    slug: "erp-development",
+    title: "ERP Software Development",
+    shortDesc: "Custom ERP systems built around your actual business workflows — not generic off-the-shelf software.",
+    fullDesc: "Enterprise Resource Planning software tailored precisely to your operations. We design and develop modular, cloud-hosted ERP systems that connect your sales, inventory, HR, finance, and operations into a single unified platform — replacing disconnected spreadsheets and manual processes with one coherent system.",
+    iconName: "Database",
+    features: [
+      "Custom Module Architecture for Your Business",
+      "Sales, Inventory & Order Management",
+      "HR, Payroll & Employee Management Modules",
+      "Finance, Invoicing & Reporting Dashboards",
+      "Role-Based User Access & Permissions",
+    ],
+    deliverables: [
+      "Custom ERP Web Application",
+      "Admin Dashboard with Role Management",
+      "Database Architecture & API Layer",
+      "Staff Training & User Documentation",
+      "Deployment & Ongoing Technical Support",
+    ],
+    idealFor: [
+      "Manufacturing & Production Businesses",
+      "Wholesale & Distribution Companies",
+      "Retail Chains & Multi-Outlet Operations",
+      "Service Firms Needing Process Automation",
+    ],
+    techStack: ["React / Next.js", "Node.js", "PostgreSQL / MySQL", "REST APIs", "TypeScript"],
+  },
+  {
+    id: "software-development",
+    slug: "software-development",
+    title: "Custom Software Development",
+    shortDesc: "Bespoke software applications built for your specific business needs — beyond what generic tools can offer.",
+    fullDesc: "We design and develop purpose-built software solutions for businesses that need more than off-the-shelf tools can provide. From internal workflow tools to customer-facing web applications and administrative dashboards, every solution is engineered around your exact processes.",
+    iconName: "Code2",
+    features: [
+      "Business-Specific Application Architecture",
+      "Web Application & Admin Portal Development",
+      "Customer Self-Service Portal Development",
+      "Workflow Automation & Process Digitization",
+      "Third-Party System & API Integration",
+    ],
+    deliverables: [
+      "Custom Web Application Frontend",
+      "Backend API & Database Architecture",
+      "User Authentication & Role Management",
+      "Technical Documentation & Source Code",
+      "Quality Testing & Deployment",
+    ],
+    idealFor: [
+      "Businesses Outgrowing Generic Software",
+      "Companies Needing Internal Business Tools",
+      "Organizations Automating Manual Processes",
+      "Startups Building Digital Products",
+    ],
+    techStack: ["React / Next.js", "TypeScript", "Node.js", "SQL / NoSQL Databases", "REST APIs"],
+  },
 ];
 
 // 2. PORTFOLIO PROJECTS (LIVE & CONCEPTS)
@@ -638,7 +696,7 @@ export const maintenancePlans: MaintenancePlan[] = [
   },
 ];
 
-// 9. FAQ DATA
+// 9. FAQ DATA (Homepage / General)
 export const faqsData = [
   {
     question: "How long does it take to design and build a website with Nirmaan Infotech?",
@@ -658,6 +716,192 @@ export const faqsData = [
   },
   {
     question: "Do you offer website maintenance and support after launch?",
-    answer: "Yes! We offer Basic, Business, and Premium Care maintenance packages starting from ₹1,499/month to keep your site updated, secure, backed up, and performing fast.",
+    answer: "Yes. We offer Basic, Business, and Premium Care maintenance packages starting from ₹1,499/month to keep your site updated, secure, backed up, and performing fast.",
+  },
+  {
+    question: "Do you build ERP software for businesses in Pune?",
+    answer: "Yes. We design and develop custom ERP systems tailored to your specific business workflows — covering sales, inventory, HR, finance, and reporting. Our ERP solutions are built as web applications accessible from any device.",
+  },
+  {
+    question: "Do you build custom software for businesses?",
+    answer: "Yes. We develop purpose-built software applications for businesses that need tools beyond what generic off-the-shelf solutions provide — including admin portals, workflow automation tools, customer management systems, and internal dashboards.",
+  },
+  {
+    question: "How do we start a project with Nirmaan Infotech?",
+    answer: "Contact us through our website form, WhatsApp, or phone. We start with a free discovery consultation to understand your business goals, scope, and requirements. We then provide a clear, fixed project proposal before any work begins.",
   },
 ];
+
+// 10. SERVICE-SPECIFIC FAQ DATA
+export const websiteDevFAQs = [
+  {
+    question: "How much does a business website cost in Pune?",
+    answer: "Website development costs in Pune depend on the number of pages, design complexity, and required features. A professional business website typically ranges from ₹9,999 for a basic presence to ₹39,999+ for advanced custom builds with integrations. We provide a fixed quote after understanding your exact requirements.",
+  },
+  {
+    question: "How long does website development take?",
+    answer: "A standard business website takes 1–4 weeks depending on scope. Simple 3–5 page sites are typically ready in 1–2 weeks. More complex websites with custom features, animations, and integrations take 3–4 weeks. We maintain clear timelines with milestone updates throughout.",
+  },
+  {
+    question: "Do you build custom websites or use templates?",
+    answer: "We build fully custom websites using Next.js and React. Every component is designed and developed for your specific business — not a template or WordPress theme. This ensures better performance, flexibility, and SEO compared to template-based approaches.",
+  },
+  {
+    question: "Do you provide mobile-responsive websites?",
+    answer: "Yes. Every website we develop is engineered mobile-first. We test across phone, tablet, and desktop screen sizes — from 320px smartphones to wide desktop displays — to ensure consistent layout, readable text, and touch-friendly interactions.",
+  },
+  {
+    question: "Do you build SEO-friendly websites?",
+    answer: "Yes. Our websites use clean semantic HTML, proper heading structures, fast loading speeds, mobile responsiveness, structured data (JSON-LD), and correct canonical URLs — all important factors for search engine visibility.",
+  },
+  {
+    question: "Do you provide website maintenance after the site goes live?",
+    answer: "Yes. We offer ongoing maintenance packages covering security updates, regular backups, performance checks, and content updates — so your website stays secure, fast, and up to date after launch.",
+  },
+];
+
+export const ecommerceFAQs = [
+  {
+    question: "How much does an e-commerce website cost?",
+    answer: "E-commerce website development costs depend on product catalog size, payment gateway requirements, and features like inventory management and order tracking. We provide a detailed fixed quote based on your specific store requirements.",
+  },
+  {
+    question: "Do you integrate Indian payment gateways like Razorpay and UPI?",
+    answer: "Yes. We integrate Razorpay, UPI, debit/credit cards, and net banking — covering the payment methods most commonly used by Indian shoppers. Your customers can complete purchases using their preferred payment method.",
+  },
+  {
+    question: "How long does it take to build an online store?",
+    answer: "A standard e-commerce store with product catalog, cart, and payment integration typically takes 4–6 weeks. More complex stores with custom inventory systems or multiple vendor support may take longer.",
+  },
+  {
+    question: "Can you migrate my existing store to a new platform?",
+    answer: "Yes. We handle product catalog migration, URL structure preservation, and SEO redirect mapping so your search rankings are protected during the transition to a new, better-performing store.",
+  },
+  {
+    question: "Do you provide order management and admin dashboard?",
+    answer: "Yes. We build intuitive admin dashboards where you can manage products, view orders, track inventory, and update pricing without technical knowledge.",
+  },
+];
+
+export const websiteRedesignFAQs = [
+  {
+    question: "When should I redesign my website?",
+    answer: "Consider a redesign if your website is more than 3 years old, loads slowly, looks outdated on mobile devices, no longer represents your business quality, or fails to generate enquiries. A modern redesign addresses all these problems.",
+  },
+  {
+    question: "Will redesigning my website affect my Google rankings?",
+    answer: "A properly executed redesign preserves or improves your search rankings. We maintain your existing URL structure, implement 301 redirects for any changed URLs, and ensure all metadata and on-page SEO signals are preserved or improved.",
+  },
+  {
+    question: "How long does a website redesign take?",
+    answer: "A standard website redesign typically takes 2–5 weeks depending on the number of pages, content migration complexity, and new feature additions. We provide a clear timeline at the start of the project.",
+  },
+  {
+    question: "Can you keep my existing content and just update the design?",
+    answer: "Yes. We migrate your existing content, images, and structure into the new design — improving readability, layout, and presentation while preserving the information your customers already rely on.",
+  },
+];
+
+export const seoFAQs = [
+  {
+    question: "How long does SEO take to show results?",
+    answer: "SEO is a long-term strategy. Technical SEO improvements (like page speed, structured data, and proper canonicals) can have faster impact. Meaningful ranking improvements for competitive keywords typically take 3–6 months of consistent work.",
+  },
+  {
+    question: "Do you do local SEO for Pune businesses?",
+    answer: "Yes. We help Pune-based businesses improve their visibility in local Google searches by optimizing their website's technical structure, local business schema, Google Business Profile consistency, and location-relevant content.",
+  },
+  {
+    question: "What is technical SEO?",
+    answer: "Technical SEO refers to the behind-the-scenes website optimizations that help search engines crawl, understand, and index your site. This includes page speed, mobile responsiveness, canonical URLs, structured data, sitemap, robots.txt, and proper heading hierarchy.",
+  },
+  {
+    question: "Do you guarantee first position on Google?",
+    answer: "No ethical SEO provider can guarantee specific ranking positions. Google's ranking systems consider hundreds of factors including competition, domain history, and content quality. We focus on maximizing your legitimate ranking potential through technical excellence and quality content.",
+  },
+];
+
+export const maintenanceFAQs = [
+  {
+    question: "Why does my website need ongoing maintenance?",
+    answer: "Websites require regular updates to their frameworks, security dependencies, and content. Without maintenance, websites can develop security vulnerabilities, broken functionality, slow loading speeds, and outdated content that erodes visitor trust.",
+  },
+  {
+    question: "What does website maintenance include?",
+    answer: "Our maintenance packages include security patching, automated cloud backups, uptime monitoring, performance checks, minor content updates, and technical support via WhatsApp and email.",
+  },
+  {
+    question: "How quickly do you respond to issues?",
+    answer: "For Business and Premium Care clients, we provide priority WhatsApp support with rapid response times for critical issues. Basic Care clients are supported via email with standard response times.",
+  },
+  {
+    question: "Can I cancel the maintenance plan anytime?",
+    answer: "Yes. Our maintenance plans are flexible monthly subscriptions. You can adjust or cancel your plan at the end of any billing period.",
+  },
+];
+
+export const digitalSolutionsFAQs = [
+  {
+    question: "What kinds of custom digital solutions do you build?",
+    answer: "We build business dashboards, internal management tools, customer self-service portals, workflow automation systems, API integrations, and custom web applications — all designed around your specific business processes.",
+  },
+  {
+    question: "Can you integrate with our existing systems?",
+    answer: "Yes. We design API integrations that connect your new digital solution with existing tools — including CRMs, accounting systems, payment providers, WhatsApp APIs, and other third-party services.",
+  },
+  {
+    question: "How long does a custom digital solution take to develop?",
+    answer: "Development timelines vary based on complexity. A focused internal tool may take 4–8 weeks. More complex multi-module systems take 8–16 weeks. We provide detailed timeline estimates in the project proposal.",
+  },
+];
+
+export const erpFAQs = [
+  {
+    question: "What is ERP software and does my business need it?",
+    answer: "ERP (Enterprise Resource Planning) software connects your business functions — sales, inventory, HR, finance — into one integrated system. If your team uses multiple disconnected tools or relies heavily on manual spreadsheets, an ERP system can significantly improve efficiency, reduce errors, and provide real-time business visibility.",
+  },
+  {
+    question: "What is the difference between custom ERP and off-the-shelf ERP?",
+    answer: "Off-the-shelf ERP (like SAP or Tally) is built for general use and requires your business to adapt to the software. Custom ERP is built specifically for your workflows, terminology, and requirements — meaning the software adapts to your business, not the other way around.",
+  },
+  {
+    question: "Do you build ERP for small and medium businesses?",
+    answer: "Yes. We build ERP solutions scaled to the needs and budget of small and medium businesses. Our approach focuses on the modules that actually matter for your operations — not overwhelming you with features you don't need.",
+  },
+  {
+    question: "How long does custom ERP development take?",
+    answer: "ERP development timelines depend on the number of modules, complexity of business processes, and integration requirements. A focused ERP system covering 2–4 core modules typically takes 8–16 weeks. We provide a detailed roadmap during the discovery phase.",
+  },
+  {
+    question: "Will we get training on how to use the ERP system?",
+    answer: "Yes. We include staff training and user documentation as part of every ERP delivery. Your team receives hands-on walkthroughs of the system before go-live, and we provide technical support during the transition period.",
+  },
+  {
+    question: "Can you build ERP modules for inventory management?",
+    answer: "Yes. Inventory management — including product tracking, stock levels, purchase orders, and supplier management — is one of the most commonly requested ERP modules we develop for manufacturing, wholesale, and retail businesses.",
+  },
+];
+
+export const softwareDevFAQs = [
+  {
+    question: "What types of software does Nirmaan Infotech develop?",
+    answer: "We develop custom web applications, admin portals, business management tools, customer self-service systems, workflow automation software, and internal dashboards. All software is built as web applications accessible from any browser.",
+  },
+  {
+    question: "Do we get full ownership of the source code?",
+    answer: "Yes. Upon project completion and final payment, you receive full ownership of the source code, database architecture, and all project deliverables. You are not tied to any licensing fees or vendor lock-in.",
+  },
+  {
+    question: "How is custom software different from a website?",
+    answer: "A website primarily presents information and generates enquiries. Custom software performs specific business functions — managing data, automating workflows, processing transactions, and enabling your team to operate more efficiently.",
+  },
+  {
+    question: "Can you add new features to our existing software?",
+    answer: "Yes. If you already have an existing system and need new modules, integrations, or feature expansions, we can assess your current architecture and develop compatible additions or improvements.",
+  },
+  {
+    question: "How long does custom software development take?",
+    answer: "Timeline depends on the scope and complexity of the application. Focused business tools typically take 6–10 weeks. Multi-feature applications with complex logic and integrations take 10–20 weeks. We provide a detailed milestone plan in your project proposal.",
+  },
+];
+

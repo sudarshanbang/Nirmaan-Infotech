@@ -5,16 +5,17 @@ import { CTASection } from '@/components/sections/CTASection';
 import { createMetadata, getBreadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Our Work & Digital Portfolio | Nirmaan Infotech',
+  title: 'Web Development Projects & Portfolio | Nirmaan Infotech Pune',
   description:
-    'Explore real-world web engineering and digital project concepts delivered across e-commerce, healthcare, real estate, professional services, and startups.',
+    'Explore web development projects and digital design concepts by Nirmaan Infotech in Pune. Production-grade websites, e-commerce storefronts, and custom software architectures.',
   path: '/portfolio',
   keywords: [
-    'Web Development Portfolio',
-    'Website Design Case Studies',
-    'Next.js Project Showcase',
-    'Digital Solutions Portfolio India',
-    'Nirmaan Infotech Work',
+    'Web Development Portfolio Pune',
+    'Website Development Projects',
+    'Pune Web Development Projects',
+    'Next.js Portfolio India',
+    'Custom Website Case Studies',
+    'Nirmaan Infotech Portfolio',
   ],
 });
 

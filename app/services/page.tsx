@@ -8,17 +8,19 @@ import { ServicesStack } from '@/components/sections/ServicesStack';
 import { createMetadata, getBreadcrumbSchema } from '@/lib/seo';
 
 export const metadata: Metadata = createMetadata({
-  title: 'Web Development & Digital Services | Nirmaan Infotech',
+  title: 'Web Development & ERP Services in Pune | Nirmaan Infotech',
   description:
-    'Explore our end-to-end digital services: custom website development, e-commerce stores, modern redesigns, technical SEO, and dedicated website maintenance.',
+    'Explore our digital services in Pune: website development, e-commerce stores, custom ERP software, bespoke software development, website redesign, technical SEO, and maintenance.',
   path: '/services',
   keywords: [
-    'Web Development Services',
-    'Custom Website Design',
+    'Web Development Services Pune',
+    'ERP Development Services Pune',
+    'Software Development Services Pune',
+    'Website Development Services',
+    'Digital Solutions Pune',
+    'Custom Web Development India',
     'E-commerce Development India',
     'Website Maintenance Packages',
-    'SEO Optimization Services',
-    'Nirmaan Infotech Services',
   ],
 });
 
